@@ -1,0 +1,51 @@
+{% extends 'main.html'%}
+{% load static %}     
+{% block content %}
+
+
+
+<div class="container gallery-container">
+  <div class="tz-gallery">
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <a class="lightbox" href="P1060056..jpg">
+          <img src="P1060056..jpg" />
+        </a>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <a class="lightbox" href="P1060057-1.jpg">
+          <img src="P1060057-1.jpg" />
+        </a>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <a class="lightbox" href="P1060058..jpg">
+          <img src="P1060058..jpg" />
+        </a>
+      </div>
+    </div>
+    <div class="row">  
+      <div class="col-sm-6 col-md-4">
+        <a class="lightbox" href="P1060060..jpg">
+          <img src="P1060060..jpg" />
+        </a>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <a class="lightbox" href="P1060061..jpg">
+          <img src="P1060061..jpg" />
+        </a>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <a class="lightbox" href="P1060065..jpg">
+          <img src="P1060065..jpg" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+<script>
+    baguetteBox.run('.tz-gallery');
+</script>
+
+{% endblock content %}

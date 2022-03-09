@@ -1,0 +1,53 @@
+{% extends 'main.html'%}
+{% load static %}       
+{% block content %}
+
+<div>
+    </br></br></br></br>
+</div>
+
+<div class="container-lg pt-4">
+    <div class="row">
+        {% for hir in page_obj %}
+            <div class="col-lg-4">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="box-element col-md-10">
+                        <div class="newspic">
+                            <img src={{ hir.hir_main_img.url }}>
+                        </div>
+                        <div class="news">
+                            <h6><strong>{{ hir.cim }}</strong></h6>
+                            <hr>
+                            {{ hir.tartalom }}
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+        
+        {% endfor %}
+    </div>
+</div>
+
+<div class="container-lg pt-4">
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; első</a>
+                <a href="?page={{ page_obj.previous_page_number }}">előző</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">következő</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">utolsó &raquo;</a>
+            {% endif %}
+        </span>
+    </div> 
+</div>
+
+{% endblock content %}

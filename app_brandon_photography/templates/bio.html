@@ -1,0 +1,64 @@
+{% extends 'main.html'%}
+{% load static %}       
+{% block content %}
+
+<div class="container-fluid" style="max-width: 1440px;">
+</br></br></br></br>
+    {% for allat in page_obj %}
+    {% if forloop.counter0|divisibleby:3 %}
+        <div class="row">
+    {% endif %}
+        <div class="col-md-4 col-sm-8">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="box-element col-sm-10">
+                        <div class="newspic">
+                            <img class="kutyus" src={{ allat.kutya_main_img.url }} >
+                        </div>
+                        <div class="news">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p class="allatnev">{{allat.nev}}</p>
+                                    <p class="allatadat">{{allat.meret}}</p>
+                                    <p class="allatadat">{{allat.ivar}}</p>
+                                    <p class="allatadat">{% if allat.ivartalanitva%} ivartalanítva{% else %} nincs ivartalanítva{% endif %}</p>
+                                    <p class="allatadat"> életkor: {{allat.eletkor}}</p>
+                                </div>
+                                
+                                <div class="col-sm-6" style="text-align: right;">
+                                    <button onclick="window.location.href='kutya.html?kutyaid={{ allat.pk }}';">
+                                        Több infó - vau
+                                    </button>
+                                </div>
+                            </div>
+
+                            <hr>
+                            {{allat.leiras}}
+                        </div>
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+        </div>
+    {% if forloop.counter|divisibleby:3  or forloop.last %}
+        </div><br><br>
+    {% endif %}
+    {% endfor %}
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; első</a>
+                <a href="?page={{ page_obj.previous_page_number }}">előző</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">következő</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">utolsó &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+{% endblock content %}
