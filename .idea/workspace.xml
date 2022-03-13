@@ -1,11 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="11e65343-80e6-44fa-85bb-764a29c36b7e" name="Changes" comment="" />
+    <list default="true" id="11e65343-80e6-44fa-85bb-764a29c36b7e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app_brandon_photography/templates/mainpage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/brandon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/brandon.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/brandon_photography.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/brandon_photography.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/17.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/18.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/19.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/21.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/22.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/23.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/24.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/25.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/26.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/27.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/28.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/templates/foto.html" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/templates/foto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/templates/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brandon/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/brandon/settings.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="25q9APTXbiKcSyi0k95zcpA6lnA" />
   <component name="ProjectViewState">
@@ -15,7 +61,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app_brandon_photography/templates" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Programozas\brandon\app_brandon_photography\templates" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -27,5 +79,19 @@
       <updated>1646243606524</updated>
     </task>
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

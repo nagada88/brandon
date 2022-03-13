@@ -4,21 +4,15 @@
 
 <div class="container-fluid">
     <div class="row">
+      {% for picture in pictures %}
+      {% if forloop.counter0 in bplist %}
       <div class="column">
-        <a href={% static '/img/1.jpg' %} data-lightbox="mygallery"><img src={% static '/img/1.jpg' %} class="ongray" /></a>
-        <a href={% static '/img/3.jpg' %} data-lightbox="mygallery"><img src={% static '/img/2.jpg' %} class="ongray" /></a>
-        <a href={% static '/img/2.jpg' %} data-lightbox="mygallery"><img src={% static '/img/3.jpg' %} class="ongray" /></a>
+      {% endif %}
+        <a href={{ picture.img_url.url }} data-lightbox="mygallery"><img src={{ picture.img_url.url }} class="ongray" /></a>{{ picture.img_url.url }}
+      {% if forloop.counter in bplist  or forloop.last %}
       </div>
-      <div class="column">
-        <a href={% static '/img/4.jpg' %} data-lightbox="mygallery"><img src={% static '/img/4.jpg' %} class="ongray" /></a>
-        <a href={% static '/img/5.jpg' %} data-lightbox="mygallery"><img src={% static '/img/5.jpg' %} class="ongray" /></a>
-        <a href={% static '/img/6.jpg' %} data-lightbox="mygallery"><img src={% static '/img/6.jpg' %} class="ongray" /></a>
-      </div>
-      <div class="column">
-        <a href={% static '/img/7.jpg' %} data-lightbox="mygallery"><img src={% static '/img/7.jpg' %} class="ongray" /></a>
-        <a href={% static '/img/8.jpg' %} data-lightbox="mygallery"><img src={% static '/img/8.jpg' %} class="ongray" /></a>
-        <a href={% static '/img/9.jpg' %} data-lightbox="mygallery"><img src={% static '/img/9.jpg' %} class="ongray" /></a>
-      </div>
+      {% endif %}
+      {% endfor %}
     </div>
 </div>
 

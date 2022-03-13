@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 
+
 <html data-wf-page="5e966657bfb4cdde5c3e404a" data-wf-site="5e966657bfb4cd1e103e404b" lang="en">
 
 <head>
@@ -14,10 +15,11 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 
+<script src={% static 'app_brandon_photography/js/lightbox-plus-jquery.min.js' %}></script>
+
 <!-- own css -->
-<link rel="stylesheet" href={% static '/brandon_photography.css' %}>
-
-
+<link rel="stylesheet" href={% static 'app_brandon_photography/brandon_photography.css' %}>
+<link rel="stylesheet" href={% static 'app_brandon_photography/css/lightbox.min.css' %}>
 
 <title>
 brandOn photography
@@ -27,7 +29,8 @@ brandOn photography
 
 <body>
 
-<nav id="mynav" class="navbar navbar-expand-sm navbar-light sticky-top">
+<nav id="mynav" class="navbar navbar-expand-sm navbar-light sticky-top" style="height: 100px;
+">
 <div class="container">
   <a class="navbar-brand" href="foto.html">brandOn photography</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> 
@@ -52,7 +55,7 @@ brandOn photography
   </div>
 </div>
 </nav>
-<section style="max-width: 1400px; margin: auto;">
+<section style="max-width: 90%; margin: auto;">
 {% block content %}
 
 {% endblock content %}
@@ -81,5 +84,5 @@ brandOn photography
 
 </body>
 <!-- <own js -->
-<script src={% static 'brandon_photography.js' %}></script>
+<script src={% static 'app_brandon_photography/brandon_photography.js' %}></script>
 </html>

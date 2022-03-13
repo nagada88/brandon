@@ -3,29 +3,21 @@
 {% block content %}
 
 <div class="container-fluid">
+  {% for category in categories %}
+    {% if forloop.counter0 in bplist %}
     <div class="row">
+    {% endif %}
       <div class="column">
-        <img src={% static '/img/1.jpg' %} class="ongray" /> 
-        <img src={% static '/img/2.jpg' %} class="ongray" />
-        <img src={% static '/img/3.jpg' %} class="ongray" />
-        <img src={% static '/img/4.jpg' %} class="ongray" />
-        <img src={% static '/img/5.jpg' %} class="ongray" />
+        <div>
+        <img src={{ picture.img_url.url }} class="ongray" />
+        </div>
       </div>
-      <div class="column">
-        <img src={% static '/img/6.jpg' %} class="ongray" />
-        <img src={% static '/img/7.jpg' %} class="ongray" />
-        <img src={% static '/img/8.jpg' %} class="ongray" />
-        <img src={% static '/img/9.jpg' %} class="ongray" />
-        <img src={% static '/img/10.jpg' %} class="ongray" />
-      </div>
-      <div class="column">
-        <img src={% static '/img/11.jpg' %} class="ongray" />
-        <img src={% static '/img/12.jpg' %} class="ongray" />
-        <img src={% static '/img/13.jpg' %} class="ongray" />
-        <img src={% static '/img/14.jpg' %} class="ongray" />
-        <img src={% static '/img/15.jpg' %} class="ongray" />
-      </div>
+    {% if forloop.counter in bplist  or forloop.last %}
     </div>
+    {% endif %}
+
+  {% endfor %}
+
 </div>
 
 {% endblock content %}
