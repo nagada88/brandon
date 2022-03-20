@@ -8,7 +8,7 @@
       {% if forloop.counter0 in bplist %}
       <div class="column">
       {% endif %}
-        <a href={{ picture.img_url.url }} data-lightbox="mygallery"><img src={{ picture.img_url.url }} class="ongray" /></a>{{ picture.img_url.url }}
+        <a href={{ picture.photo.url }} data-lightbox="mygallery"><img src={{ picture.photo_tumb.url }} class="ongray" /></a>{{ picture.img_url.url }}
       {% if forloop.counter in bplist  or forloop.last %}
       </div>
       {% endif %}

@@ -9,7 +9,7 @@ body.lb-disable-scrolling {
   z-index: 9999;
   background-color: black;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-  opacity: 0.8;
+  opacity: 0.9;
   display: none;
 }
 
@@ -31,8 +31,8 @@ body.lb-disable-scrolling {
   max-height: none;
   border-radius: 3px;
 
-  /* Image border */
-  border: 4px solid white;
+  /* Image border *//*
+  border: 4px solid black;*/
 }
 
 .lightbox a img {

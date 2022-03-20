@@ -2,52 +2,22 @@
 {% load static %}       
 {% block content %}
 
-<div>
-    </br></br></br></br>
-</div>
-
-<div class="container-lg pt-4">
+<div class="container-fluid" style="max-width:90%;">
     <div class="row">
-        {% for hir in page_obj %}
-            <div class="col-lg-4">
-                <div class="row">
-                    <div class="col-md-1"></div>
-                    <div class="box-element col-md-10">
-                        <div class="newspic">
-                            <img src={{ hir.hir_main_img.url }}>
-                        </div>
-                        <div class="news">
-                            <h6><strong>{{ hir.cim }}</strong></h6>
-                            <hr>
-                            {{ hir.tartalom }}
-                        </div>
-                    </div>
-                    <div class="col-md-1"></div>
-                </div>
-            </div>
-        
-        {% endfor %}
+        <div class="col-lg-8 embed-responsive embed-responsive-16by9">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/p18YJO2rPyk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="col-lg-4">
+
+        </div>
     </div>
-</div>
+    <div class="row" style="padding-top: 100px;">
+        <div class="col-lg-4">
 
-<div class="container-lg pt-4">
-    <div class="pagination">
-        <span class="step-links">
-            {% if page_obj.has_previous %}
-                <a href="?page=1">&laquo; első</a>
-                <a href="?page={{ page_obj.previous_page_number }}">előző</a>
-            {% endif %}
-
-            <span class="current">
-                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-            </span>
-
-            {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">következő</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">utolsó &raquo;</a>
-            {% endif %}
-        </span>
-    </div> 
+        </div>
+        <div class="col-lg-8  embed-responsive embed-responsive-16by9">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/362iXGbq4Nk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        </div>
+    </div>
 </div>
 
 {% endblock content %}

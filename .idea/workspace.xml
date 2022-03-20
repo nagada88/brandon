@@ -2,53 +2,209 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11e65343-80e6-44fa-85bb-764a29c36b7e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app_brandon_photography/templates/mainpage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/brandon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/brandon.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_brandon_photography/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_brandon_photography/templates/gallery.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_brandon_photography/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_brandon_photography/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/brandon_photography.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/brandon_photography.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/13.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/14.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/15.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/16.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/17.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/18.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/19.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/20.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/21.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/22.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/23.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/24.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/25.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/26.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/27.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/28.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/img/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/brandon_photography.css" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/brandon_photography.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/brandon_photography.js" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/brandon_photography.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/css/lightbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/css/lightbox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/17.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/18.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/19.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/21.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/22.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/23.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/24.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/25.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/26.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/27.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/28.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/img/P1054084-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/templates/bio.html" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/templates/bio.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_brandon_photography/templates/foto.html" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/templates/foto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/templates/kapcsolat.html" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/templates/kapcsolat.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_brandon_photography/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/templates/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/templates/mainpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/templates/mainpage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_brandon_photography/templates/video.html" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/templates/video.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_brandon_photography/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_brandon_photography/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/brandon/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/brandon/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/DJI_0141-Pano-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/DJI_0141-Pano.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/DJI_0274-HDR-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/DJI_0274-HDR.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/DJI_0299-HDR-Pano1-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/DJI_0299-HDR-Pano1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/DJI_0341-HDR-Pano-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/DJI_0341-HDR-Pano.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/DJI_0423-HDR-5-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/DJI_0423-HDR-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/DJI_0487-2-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/DJI_0487-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/DJI_0538-HDR-2-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/DJI_0538-HDR-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/DJI_0675-HDR-Pano-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/DJI_0675-HDR-Pano.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/DJI_0770-HDR-Pano-4-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/DJI_0770-HDR-Pano-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/DJI_0930-HDR-Pano-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/DJI_0930-HDR-Pano.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1010354-2-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1010354-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1010401-2-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1010401-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1010421-2-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1010421-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1010422-2-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1010422-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1010428-3-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1010428-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1010794-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1010794.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1010831-3-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1010831-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1020235-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1020235.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1020417-2-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1020417-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1053861-vegleges-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1053861-vegleges.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1053871-vegleges-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1053871-vegleges.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1053992-forlr1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1053992-forlr1_Ng8kqwW.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1053992-forlr1_OlB8hpd.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1053992-forlr1_Yysc2oY.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1053992-forlr1_fXL2NrL-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1053992-forlr1_fXL2NrL.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1053992-forlr1_i6Wyk1t.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1053992-forlr1_kWnZkHF.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1053992-forlr1_oEZPwLC-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1053992-forlr1_oEZPwLC.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1053992-forlr1_xYNpUKg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054028-2-forrl.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054028-2-forrl_9sFiO0M-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054028-2-forrl_9sFiO0M.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054028-2-forrl_nEJ7NtL-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054028-2-forrl_nEJ7NtL.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054028-2-forrl_tpBW6MM.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054028-2-forrl_tpBW6MMthumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054084-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054084-2_D29HPe4-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054084-2_D29HPe4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054084-2_wAWthgC-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054084-2_wAWthgC.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054112-vegleges-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054112-vegleges.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054112-vegleges_MqWXEOC-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054112-vegleges_MqWXEOC.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054179-vegleges-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054179-vegleges.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054179-vegleges_TznPVHT-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054179-vegleges_TznPVHT.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054661-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054661.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054762-3-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1054762-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1060163-2-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1060163-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1060639-3-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1060639-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1090518-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1100190-2-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1100190-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1100316-2-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1100316-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1100325-3-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1100325-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1100328-3-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/P1100328-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/PANA5661-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/PANA5661.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/PANA6218-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/PANA6218.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/PANA6288-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/PANA6288.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/PANA6346-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/PANA6346.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/PANA6864-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/PANA6864.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/Untitled_HDR8-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/Untitled_HDR8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/photos/DJI_0141-Pano_0kRklH6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/photos/DJI_0141-Pano_KLwjDJs.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/photos/DJI_0141-Pano_cCh5d5O.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/photos/DJI_0538-HDR-2_NqNJBmf.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/app_brandon_photography/img/thumbs/DJI_0675-HDR-Pano.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/04/c7/04c7bf033188b4cff5c8dc37296ece66.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/09/47/0947f5b93ec90e913a109a7e32fc6843.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/0b/4b/0b4b273413047903c44d214da72e0e15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/0b/f2/0bf2bf15e8fb3a32cf6f7dc7959a96db.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/12/cc/12cc24bb58ab3f1506768a1040080af4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/1e/48/1e48a9db0efa33246dda8cc3eeff8e5e.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/1f/e3/1fe35c241d63839a760de7d79b9c45d1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/39/69/3969e9dc85bc9da6c098b4b104b559c1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/3a/f9/3af9e89f218396a72d71707d0bb3b68f.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/46/48/46489b61f6830709aebe483ba1e2bf1a.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/4c/bf/4cbf030768a482aac5b9cdefd8a7c3ee.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/55/b5/55b522479ff8ac5f4e18e2f80aaf465c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/59/74/597443cb9d6c28b72ce7f4f750d6da9f.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/5d/dc/5ddc5f99bcd1c03492fadaa0f25c8aeb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/67/93/67939551df7b1a1b13e8884d2145b70c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/71/38/713895bb2ebc37a30ecb0803a0f5d3df.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/72/76/7276b56a702fa85bdd46656801879393.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/76/62/7662b3344a994eee62c9b5d725397f65.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/78/f4/78f4836118da5418b136d086f254fdc0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/82/a3/82a346b0b77f7a09d59b59ce40d811d9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/87/c0/87c0e7ae0c8319edfba614969f9f7d65.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/8d/f4/8df4112ea964b81ccaae432aa2cb0c6e.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/a1/83/a183e4afdb378f7de4e9f1c64bbe1325.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/b8/bd/b8bd8bb1fd5c5af4d91884b9d545c274.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/bc/98/bc987a4224148865138819deac87893d.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/c8/58/c858c5a3cc3d7955e93edca88b49f237.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/cc/dd/ccdd8c68004b99c34136285daf303461.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/d1/76/d176ce7f7d4486d03e518e3084c0fc58.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/d2/b9/d2b96078e6c94d536f2e30cfff54fd42.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/d4/5a/d45aa213e3650fcd979dd1a334120242.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/d6/8a/d68af84169eb8d0cfece49e079f55525.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/d6/c7/d6c7b6b21e8357cbd8e6296c66d32872.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/eb/75/eb7561220bf1916f32f096ba9ef0e770.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/ec/b7/ecb72856343f1c883fe903909e6bf2c4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/f1/dc/f1dc23e8c8360df64c5f29a23c776edf.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/f3/17/f317518f8f56bf0e25fd35b4209a1f0c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/f3/94/f394fc0c89efa8211eba208c7669aca8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cache/ff/f8/fff8dcdb8589d51dbe3d20108deaa13f.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,11 +217,12 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app_brandon_photography/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Programozas\brandon\app_brandon_photography\static\app_brandon_photography" />
       <recent name="C:\Programozas\brandon\app_brandon_photography\templates" />
     </key>
   </component>
@@ -93,5 +250,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
