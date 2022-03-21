@@ -8,17 +8,21 @@
     <div class="row">
       <div class="col-sm-12 col-md-12">
         	<!--Contact form-->
-          <div style="margin:80px" class="contact">
-              <h1>Kapcsolat</h1>
-              <p>
-                    Amennyiben kérdésed van, vagy árajánlatot szeretnél kérni, kérlek használd az alábbi formot vagy küldj közvetlenül üzenetet a nagada88@gmail.com címre.
-                    Általában 1 napon belül válaszolni tudok.
-              </p>
-              <form method="post">
-              {% csrf_token %}
-                  {{form.as_p}}
-                  <button type="submit">Elküldöm</button>
-              </form>
+          <div class="container center-block contact">
+              <div style="margin: auto; text-align: left;" class="form-group">
+
+                  <h1>Kapcsolat</h1><br><br>
+                  <p style="text-align: center;">
+                        Amennyiben kérdésed van, vagy árajánlatot szeretnél kérni, kérlek használd az alábbi űrlapot vagy küldj közvetlenül üzenetet a nagada88@gmail.com címre.
+                        Általában 1 napon belül válaszolni tudok.
+                  </p><br><br>
+
+                  <form method="post">
+                  {% csrf_token %}
+                      {{form.as_p}}
+                    <br><button type="submit" class="btn btn-dark btn-rounded" style="text-align: center; margin: 0 auto;">Elküldöm</button>
+                  </form>
+              </div>
           </div>
       </div>
 </div>

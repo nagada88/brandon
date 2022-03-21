@@ -13,10 +13,18 @@ height:200px;
   transition: background-color 200ms linear;
 }
 
+.navbar{
+        box-shadow:hsl(10, 50%, 10%) 0 0 6px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+color: rgb(153,101,21);
+}
+
 .navbar .navbar-nav {
     margin:0 auto;
     font-family: Unica One;
-    font-size: 24px;
+    font-size: 32px;
 }
 
 .navbar .nav-item {
@@ -79,7 +87,6 @@ height:200px;
 .nav-transparent { background-color:transparent;}
 
 ul.navbar-nav>li.nav-item>a.nav-link.custom{
-    color: gray !important;
 }
 
 .navbar .nav-item.borderabove{
@@ -142,6 +149,7 @@ body{
   width: 100vw;
   height: 100vh;
   margin: 0;
+  overflow:auto;
 }
 
 .ongray
@@ -192,11 +200,16 @@ img {
 .g {-webkit-filter: grayscale(1);
     filter: grayscale(1);
   }
+  
+.photog{
+opacity:0.8;
+}
 
 .wrapperconstraint-gallery{
   overflow:hidden;
   width: 100%;
-  padding-top: 3px;
+  max-height: 100%;
+  margin-top: 3px;
 }
 
 
@@ -232,6 +245,8 @@ max-width: 90%;
       transform: translateX(-50%) translateY(-50%);
       object-fit: cover;
       transition: transform 0.5s ease;
+      -webkit-transition:-webkit-filter 0.5s ease-in-out;
+      transition:-webkit-filter 0.5s ease-in-out;
 }
 
 .description {
@@ -239,11 +254,11 @@ max-width: 90%;
   background-color: rgba(230, 230, 230, 0.9);
   height: 150px;
   width: 100%;
-  bottom: -60px;
+  bottom: -160px;
   left: 0;
   text-align: center;
   padding-top: 10px;
-  transform: translateY(90px);
+  transform: translateY(-90px);
   transition: transform 0.5s ease;
   font-family: Unica One;
   color: hsl(0,0%, 10%);
@@ -306,13 +321,14 @@ padding: 3px;
   }
 }
 
+
 .bio-picture {
   max-width:90%;
   margin: 40px;
   margin-bottom: 100px;
   margin-top: 130px;
   border-radius: 50%;
-  opacity: 70%;
+  opacity: 90%;
 }
 
 .bio-text{
@@ -320,18 +336,18 @@ padding: 40px;
 overflow: hidden;
 color: white;
 font-family: Candara;
-font-size: 16px;
+font-size: 20px;
 text-align: center;
 }
 
 .bio-text h3{
 color: rgb(153,101,21);
-font-size:20px;
+font-size:30px;
 }
 
 .bio-text h4{
 color: rgb(153,101,21);
-font-size:16px;
+font-size:28px;
 }
 
 .bio-card {
@@ -359,6 +375,15 @@ font-size: 24px;
 height: 200px;
 margin: auto;
 opacity: 70%;
+-moz-transition: all 0.8s ease-out;  /* FF4+ */
+-o-transition: all 0.8s ease-out;  /* Opera 10.5+ */
+-webkit-transition: all 0.8s ease-out;  /* Saf3.2+, Chrome */
+-ms-transition: all 0.8s ease-out;  /* IE10? */
+transition: all 0.8s ease-out;
+}
+
+.activity-icon:hover{
+opacity: 0.3;
 }
 
 .sect-activity{
@@ -367,18 +392,45 @@ opacity: 70%;
 
 /*CONTACT SITE*/
 .contact{
+    background: hsl(0,0%,40%);
+    opacity: 90%;
+    padding: 80px;
+    border-radius: 10px;
+    color: hsl(0,0%,90%);
+    box-shadow:hsl(10, 50%, 10%) 0 0 20px;
+    font-family: Vollkorn;
+    font-size: 24px;
+    animation: 1s ease-out 0s 1 slideInFromLeft;
 }
 
-.contact h1{
+
+.form-control{
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #000000;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.form-group{
+max-width:800px;
+}
+
+.form-group h1
+{
     font-family: Unica One;
     font-size: 50px;
-    }
+    text-align: center;
+}
 
-.contact{
-    font-family: Vollkorn;
-    font-size: 20px;
-    }
-/* div { outline: 1px dashed blue } span { outline: 1px dashed green }
+.form-intro{
+margin: auto;
+padding: auto;
+}
+
+/*
+div { outline: 1px dashed blue } span { outline: 1px dashed green }
 
 div {
     border: 1px solid rgb(0, 0, 0);;

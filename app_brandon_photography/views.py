@@ -47,10 +47,10 @@ def kapcsolat(request):
         if form.is_valid():
             subject = "Website Inquiry"
             body = {
-                'kereszt_nev': form.cleaned_data['kereszt_nev'],
-                'vezetek_nev': form.cleaned_data['vezetek_nev'],
-                'email': form.cleaned_data['email_cim'],
-                'uzenet': form.cleaned_data['üzenet'],
+                'first_name': form.cleaned_data['first_name'],
+                'last_name': form.cleaned_data['last_name'],
+                'email_address': form.cleaned_data['email_address'],
+                'message': form.cleaned_data['message'],
             }
             message = "\n".join(body.values())
 
