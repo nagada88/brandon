@@ -30,10 +30,6 @@ height:5vw;
     padding: 1.5vw 2vw 1vw 2vw;
 }
 
-.navbar.li:hover a{
-color: black;
-}
-
 
 @media only screen and (max-width: 991px) {
   header .navbar-default {
@@ -204,6 +200,7 @@ animation: 1.5s ease-out 0s 1 slideInFromLeft;
 
 
 .gallery{
+animation: 1.5s ease-out 0s 1 opac-in;
 max-width: 90%;
 }
 
@@ -259,6 +256,7 @@ transform: scale(1.1);
   width: 100%;
 }
 
+
 .container-fluid{
 padding: 3px;
 }
@@ -301,15 +299,6 @@ padding: 3px;
   }
 }
 
-.mail-icon {
-    opacity:0.85;
-    height: 12vw;
-    filter: invert(36%) sepia(97%) saturate(413%) hue-rotate(357deg) brightness(93%) contrast(91%);
-}
-
-.bio{
-padding: 15px;
-}
 
 .bio-picture {
   max-width:90%;
@@ -384,7 +373,9 @@ opacity: 0.3;
 
 /*CONTACT SITE*/
 .contact{
-    float:none;
+    overflow:hidden;
+    opacity: 100%;
+    padding: 80px;
     border-radius: 10px;
     color: hsl(0,0%,90%);
     box-shadow:hsl(10, 50%, 10%) 0 0 20px;
@@ -393,69 +384,47 @@ opacity: 0.3;
     animation: 1s ease-out 0s 1 slideInFromLeft;
 }
 
+/*.contact-bg{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: url("/static/app_brandon_photography/img/contactBG.jpg") center center;
+    opacity:0.4;
+}*/
 .form-control{
+  background: transparent;
   border: none;
   border-bottom: 1px solid #000000;
-  background-color: hsl(0,0%, 20%);;
   -webkit-box-shadow: none;
   box-shadow: none;
   border-radius: 0;
 }
 
 .form-group{
-    color: rgb(153,101,21);
-    padding-left: 4rem;
-    padding-right: 4rem;
-    padding-top: 7rem;
+max-width:800px;
 }
 
 .form-group h1
 {
     font-family: Unica One;
+
+    color: hsl(0,0%,90%);
     font-size: 50px;
     text-align: center;
-    margin-left: 5rem;
-    margin-right: 5rem;
 }
 
-
-
-.socicon{
-      transition: 0.3s linear;
-      -webkit-backface-visibility: hidden;
+.form-intro{
+margin: auto;
+padding: auto;
 }
 
-.menusoci:hover .socicon{
-    transform:scale(1.6);
-}
-
-.brandicon{
-      transition: 0.3s linear;
-      -webkit-backface-visibility: hidden;
-}
-
-.menubrand:hover .brandicon{
-    transform:scale(1.1);
-}
-
-.formbutton{
-    font-family: Unica One;
-    color: rgb(153,101,21);
-}
-
-.footer{
-    background-color: hsl(0,0%, 20%);
-    padding: 15px;
-    color: rgb(153,101,21);
-}
-
-.copywrite{
-    padding-right: 100px;
-}
-
-/*div { outline: 1px dashed blue } span { outline: 1px dashed green }
+/*
+div { outline: 1px dashed blue } span { outline: 1px dashed green }
 
 div {
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);;
 }*/
-

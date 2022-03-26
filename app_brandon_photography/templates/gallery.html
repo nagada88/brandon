@@ -4,19 +4,19 @@
 
 
 <div class="container-fluid gallery">
-    <div class="row">
+    <div class="row no-gutters">
       {% for picture in pictures %}
-      {% if forloop.counter0 in bplist %}
-      <div class="column">
-      {% endif %}
-        <a href={{ picture.photo.url }} data-lightbox="mygallery">
-        <div class="wrapperconstraint-gallery">
-                <img src={{ picture.photo_tumb.url }} class="ongray" />
-        </div>
-        </a>{{ picture.img_url.url }}
-      {% if forloop.counter in bplist  or forloop.last %}
-      </div>
-      {% endif %}
+          {% if forloop.counter0 in bplist %}
+          <div class="col-lg-4 col-md-12 pr-1">
+          {% endif %}
+            <a href={{ picture.photo.url }} data-lightbox="mygallery">
+                <div class="wrapperconstraint-gallery">
+                    <img src={{ picture.photo_tumb.url }} class="ongray" />
+                </div>
+            </a>
+          {% if forloop.counter in bplist  or forloop.last %}
+          </div>
+          {% endif %}
       {% endfor %}
     </div>
 </div>

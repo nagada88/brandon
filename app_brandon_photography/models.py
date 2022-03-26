@@ -35,7 +35,6 @@ class PhotoCategory(models.Model):
 class Photos(models.Model):
     category = models.ForeignKey(PhotoCategory, on_delete=models.CASCADE)
     main_site_visibility = models.BooleanField()
-    category_cover = models.BooleanField()
     priority = models.IntegerField(default=99, validators=[MaxValueValidator(100), MinValueValidator(1)] )
     photo = models.ImageField(upload_to='app_brandon_photography/img/photos/')
     photo_tumb = models.ImageField(upload_to='app_brandon_photography/img/thumbs/', editable=False)
