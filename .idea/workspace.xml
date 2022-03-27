@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="11e65343-80e6-44fa-85bb-764a29c36b7e" name="Changes" comment="Changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/migrations másolata/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/migrations másolata/0002_photocategory_category_cover.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/migrations másolata/0003_alter_photocategory_category_cover.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/migrations másolata/0004_alter_photocategory_category_cover.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/migrations másolata/0005_alter_photocategory_category_cover.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/migrations másolata/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/brandon_photography.css" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/brandon_photography.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brandon/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/brandon/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
