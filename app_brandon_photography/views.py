@@ -54,7 +54,7 @@ def kapcsolat(request):
             message = "\n".join(body.values())
 
             try:
-                send_mail(subject, message, 'nagada88@gmail.com', ['nagada88@gmail.com'])
+                send_mail(subject, message, email_address, [email_address])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect("gallery.html")
