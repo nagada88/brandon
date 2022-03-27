@@ -30,9 +30,6 @@ height:5vw;
     padding: 1.5vw 2vw 1vw 2vw;
 }
 
-.navbar.li:hover a{
-color: black;
-}
 
 
 @media only screen and (max-width: 991px) {
@@ -418,11 +415,21 @@ opacity: 0.3;
     margin-right: 5rem;
 }
 
-
-
 .socicon{
       transition: 0.3s linear;
       -webkit-backface-visibility: hidden;
+}
+
+.menusoci:visited .socicon{
+        color:rgb(153,101,21);
+}
+
+.menusoci:link .socicon{
+        color:rgb(153,101,21);
+}
+
+.menusoci:active .socicon{
+        color:rgb(153,101,21);
 }
 
 .menusoci:hover .socicon{
