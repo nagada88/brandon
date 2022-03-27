@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11e65343-80e6-44fa-85bb-764a29c36b7e" name="Changes" comment="Changes">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/brandon_photography.css" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/brandon_photography.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/brandon_photography.js" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/brandon_photography.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/static/app_brandon_photography/brandon_photography1.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app_brandon_photography/templates/bio.html" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/templates/bio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/templates/foto.html" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/templates/foto.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/templates/gallery.html" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/templates/gallery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/templates/kapcsolat.html" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/templates/kapcsolat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/templates/main másolata.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_brandon_photography/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_brandon_photography/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brandon/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/brandon/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
