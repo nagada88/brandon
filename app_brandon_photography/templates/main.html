@@ -31,17 +31,16 @@ brandOn photography
 
 <body>
 
-<nav id="mynav" class="navbar navbar-expand-lg navbar-light sticky-top no-gutter">
-  <div class="container-fluid">
+<nav id="mynav" class="navbar navbar-expand-lg navbar-light sticky-top no-gutter" style="text-align: center;">
+  <div class="container" style="margin:auto;">
+    <a class="navbar-brand navbar-expand menubrand mr-5" href="gallery"><img src="{% static 'app_brandon_photography/img/logo.jpg' %}" class="brand-logo brandicon"></a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-expand-lg navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item pr-3 ">
-            <a class="navbar-brand menubrand" href="gallery"><img src="{% static 'app_brandon_photography/img/logo.jpg' %}" class="brand-logo brandicon"></a>
-        </li>
+      <ul class="navbar-nav" style="padding: 0px; margin: 0px;">
         <li class="nav-item menupoint">
           <a class="nav-link" href="bio.html">bemutatkozás</a>
         </li>
@@ -55,14 +54,13 @@ brandOn photography
           <a class="nav-link" href="kapcsolat.html">kapcsolat</a>
         </li>
         <li class="nav-item menupoint">
-          <a class="nav-link menusoci" href="https://www.instagram.com/adam.nagy.3133/" target="blank"><i class="fa fa-instagram fa-lg socicon"></i></a>
+          <a class="nav-link menusoci" href="https://www.instagram.com/nagipix/" target="blank"><i class="fa fa-instagram fa-lg socicon"></i></a>
         </li>
         <li class="nav-item menupoint">
           <a class="nav-link menusoci" href="https://www.youtube.com/channel/UCasDOzwaHVi0a-Nit9u-w0A" target="blank"><i class="fa fa-youtube fa-lg socicon"></i></a>
         </li>
       </ul>
     </div>
-  </div>
 
 </nav><br><br>
 <section style="width: 100%;">
@@ -77,7 +75,7 @@ brandOn photography
 
 <div class="container-fluid footer">
   <div class="row copywrite">
-    <div class="col-sm-12 text-right">Nagy Ádám <i class="fa fa-copyright" aria-hidden="true"></i> 2022</div>
+    <div class="col-sm-12">Nagy Ádám <i class="fa fa-copyright" aria-hidden="true"></i> 2022</div>
   </div>
 </div>
 

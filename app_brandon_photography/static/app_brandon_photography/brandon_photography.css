@@ -3,6 +3,10 @@
 @import url('https://fonts.googleapis.com/css?family=Vollkorn');
 
 /* NAVBAR ITEMS */
+.navbar .navbar-collapse {
+  text-align: left;
+}
+
 
 .navbar-fixed-top.scrolled {
   transition: background-color 200ms linear;
@@ -180,7 +184,7 @@ img {
 .g {-webkit-filter: grayscale(1);
     filter: grayscale(1);
   }
-  
+
 .photog{
 opacity:0.8;
 }
@@ -392,7 +396,7 @@ opacity: 0.3;
 
 .form-control{
   border: none;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #FFEFD6;
   background-color: hsl(0,0%, 20%);;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -400,7 +404,7 @@ opacity: 0.3;
 }
 
 .form-group{
-    color: rgb(153,101,21);
+    color: white;
     padding-left: 4rem;
     padding-right: 4rem;
     padding-top: 7rem;
@@ -409,6 +413,7 @@ opacity: 0.3;
 .form-group h1
 {
     font-family: Unica One;
+    color: rgb(153,101,21);
     font-size: 50px;
     text-align: center;
     margin-left: 5rem;
@@ -454,6 +459,8 @@ opacity: 0.3;
     background-color: hsl(0,0%, 20%);
     padding: 15px;
     color: rgb(153,101,21);
+    text-align: center;
+    min-height: 30vw;
 }
 
 .copywrite{
