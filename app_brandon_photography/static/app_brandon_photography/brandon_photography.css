@@ -460,7 +460,7 @@ opacity: 0.3;
     padding: 15px;
     color: rgb(153,101,21);
     text-align: center;
-    min-height: 30vw;
+    height: 50px;
 }
 
 .copywrite{
