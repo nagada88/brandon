@@ -2,15 +2,45 @@
 {% load static %}       
 {% block content %}
 
+<!-- MENU -->
+<nav id="mynav" class="navbar navbar-expand-xl navbar-light sticky-top" style="text-align: center;">
+  <div class="container">
+    <a class="navbar-brand navbar-expand menubrand mr-auto" href="intro"><img src="{% static 'app_brandon_photography/img/nagipix.png' %}" class="brand-logo brandicon"></a>
 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse flex" id="navbarTogglerDemo01">
+            <ul class="navbar-nav">
+        <div class="btn-group">
+          <button type="button" class="btn"> <a href="intro.html#arak">lehetőségek</a></button>
+          <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="eskuvo.html">esküvői fotózás</a></li>
+            <li><a class="dropdown-item" href="portre.html">portréfotózás</a></li>
+            <li><a class="dropdown-item" href="termek.html">termékfotózás</a></li>
+            <li><a class="dropdown-item" href="marketing.html">marketing</a></li>
+            <li><a class="dropdown-item" href="kiskedvenc.html">kiskedvenc fotózás</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="video.html">videokészítés</a></li>
+          </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container" style="height: 100px";></div>
+<h2>{{ category.0.name }}</h2></h2>
 <div class="container-fluid gallery">
-    <div class="row no-gutters">
+    <div class="row g-0">
       {% for picture in pictures %}
           {% if forloop.counter0 in bplist %}
-          <div class="col-lg-4 col-md-12 pr-1">
+          <div class="col-lg-4 col-md-12">
           {% endif %}
             <a href={{ picture.photo.url }} data-lightbox="mygallery">
-                <div class="wrapperconstraint-gallery">
+                <div class="wrapperconstraint-photo-gallery">
                     <img src={{ picture.photo_tumb.url }} class="ongray" />
                 </div>
             </a>

@@ -1,0 +1,171 @@
+{% extends 'main.html'%}
+{% load static %}       
+{% block content %}
+
+<!-- MENU -->
+<nav id="mynav" class="navbar navbar-expand-xl navbar-light sticky-top" style="text-align: center;">
+  <div class="container">
+    <a class="navbar-brand navbar-expand menubrand mr-auto" href="intro"><img src="{% static 'app_brandon_photography/img/nagipix.png' %}" class="brand-logo brandicon"></a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse flex" id="navbarTogglerDemo01">
+      <ul class="navbar-nav">
+        <li class="nav-item menupoint">
+          <a class="nav-link" href="intro.html">főoldal</a>
+        </li>
+        <div class="btn-group">
+          <button type="button" class="btn"> <a href="intro.html#arak">lehetőségek</a></button>
+          <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="eskuvo.html">esküvői fotózás</a></li>
+            <li><a class="dropdown-item" href="portre.html">portréfotózás</a></li>
+            <li><a class="dropdown-item" href="termek.html">termékfotózás</a></li>
+            <li><a class="dropdown-item" href="kiskedvenc.html">kiskedvenc fotózás</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="video.html">videokészítés</a></li>
+          </ul>
+        </div>
+        <li class="nav-item menupoint">
+          <a class="nav-link" href="intro.html#contact" target="blank">kapcsolat</a>
+        </li>
+        <li class="nav-item menupoint">
+          <a class="nav-link menusoci" href="https://www.instagram.com/nagipix/" target="blank"><i class="fa-brands fa-instagram socicon"></i></a>
+        </li>
+        <li class="nav-item menupoint">
+          <a class="nav-link menusoci" href="https://www.youtube.com/channel/UCasDOzwaHVi0a-Nit9u-w0A" target="blank"><i class="fa-brands fa-youtube socicon"></i></a>
+        </li>
+      </ul>
+    </div>
+</nav>
+
+<!-- CAROUSEL -->
+<div id="carouselExampleInterval" class="carousel slide carousel-fade" data-bs-ride="carousel"  data-bs-pause="false">  
+  <div class="carousel-inner1">
+    <div class="carousel-item active" data-bs-interval="4000">
+      <img src={% static '/app_brandon_photography/images/Carousel/MarketingVideo/Carousel1.jpg' %} class="d-block w-100" style="width: auto; max-width: 100%;">
+    </div>
+    <div class="carousel-item">
+      <img src={% static '/app_brandon_photography/images/Carousel/MarketingVideo/Carousel2.jpg' %} class="d-block w-100" style="width: auto; max-width: 100%;">
+    </div>
+    <div class="carousel-item">
+      <img src={% static '/app_brandon_photography/images/Carousel/MarketingVideo/Carousel3.jpg' %} class="d-block w-100" style="width: auto; max-width: 100%;">
+    </div>
+  </div>
+</div>
+
+
+<section class="kiskedvenc">
+
+    <div class="container-fluid category-header">
+        <div class="row g-0">
+            <div class="col-xl-2 col-xs-0 col-sm-0"></div>
+            <div class="col-xl-5 col-xs-12 col-sm-12"> 
+                <div class="visioncard vs-card-header">
+                    <h2>Webes megjelenés nulláról</h2>
+                    <p>Bízd rám vállalkozásod webes megjelenését!</p>
+                    <p>Ahelyett hogy külön keresel fotóst, videóst, aki bemutatja tevékenységed, bízd rám ezt a feladatot! Nagyon szeretem a komplex, sok-sok agyalást igénylő, designt is igénybe vévő feladatokat. A kép és videóanyagon túl a honlapod is elkészítem. Bonyolultságtól és igényektől függően python django vagy wordpress rendszert használok. </p>
+                    <p><b>Esküvői honlapokat</b> is nagy örömmel készítek el, gyűjtsd össze egy helyen az információkat a közelgő esküvődről, és oszd meg a képeket egy elegáns helyen az esküvőd után!</p>
+                </div>
+            </div>
+            <div class="col-xl-5 col-xs-12 col-sm-12">
+                <div>
+                    <img src={% static '/app_brandon_photography/images/Carousel/MarketingVideo/webdesign.jpg' %}  class="fokartya-foto"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="height: 2vw">
+    </div>
+ 
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-4 col-sm-0">
+            </div>
+            <div class="col-xl-7 col-sm-12"> 
+                <div class="visioncard">
+                    <img src={% static '/app_brandon_photography/images/Icons/konzultacio.png' %} class="icon" />
+                    <h2>Konzultáció</h2>
+                    <p>Ingyenes beszélgetés telefonon, chaten, vagy videóhívás formájában.</p>
+                    <p>Amennyiben megkezdjük a közös munkát, akkor egy ilyen kihívás esetén ez többszöri egyeztetést igényel. Számomra fontos a kommunikáció.</p>
+                </div>
+            </div>
+            <div class="col-xl-1 col-sm-0">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-1 col-sm-0">
+            </div>
+            <div class="col-xl-7 col-sm-12"> 
+                <div class="visioncard">
+                    <img src={% static '/app_brandon_photography/images/Icons/alairas.png' %} class="icon" />
+                    <h2>Szerződés</h2>
+                    <p>Megírom a szerződéstervezetet, amelyben kitérünk az árra, a honlap technikai részleteire, az átadás utáni támogatás hosszára, és az átadás formájára.</p>
+                </div>
+            </div>
+            <div class="col-xl-4 col-sm-0">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-4 col-sm-0">
+            </div>
+            <div class="col-xl-7 col-sm-12"> 
+                <div class="visioncard">
+                    <img src={% static '/app_brandon_photography/images/Icons/workflow.png' %} class="icon" />
+                    <h2>Konzultáció, design, munka, fotó, videó, konzultáció, munka...</h2>
+                    <p>Azt hiszem beszédes a cím :)</p>
+                </div>
+            </div>
+            <div class="col-xl-1 col-sm-0">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-1 col-sm-0">
+            </div>
+            <div class="col-xl-7 col-sm-12"> 
+                <div class="visioncard">
+                    <img src={% static '/app_brandon_photography/images/Icons/give.png' %} class="icon" />
+                    <h2>Honlap átadása, fizetés</h2>
+                    <p>A szerződésben rögzített időpontig, az előre megbeszélt módon átadom a képeket, videókat és a honlapot. A honlap későbbi használatához videós segédletet készítek. </p>
+                </div>
+            </div>
+            <div class="col-xl-4 col-sm-0">
+            </div>
+        </div>
+    </div>
+    
+<!-- PARALLAX -->
+<div class="parallax-marketing"></div>
+<div class="container" style="height: 3vw;"></div>
+<h2><center>REFERENCIÁK</center></h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-1 col-sm-0">
+        </div>
+        <div class="col-xl-7 col-sm-12"> 
+            <div class="visioncard">
+                <h2>Ágica Solti Menhelye</h2>
+                <p>2022 év elején kerestem fel Ágicát, aki a Solti menhely alapítója és azóta is állatok százait menti, gondozza és adja örökbe. 2 marketingvideó és 1 fotózáson túl 2022 év végére elkészíttem a honlapot is a menhely számára, ahol dinamikusan lehet hozzáadni örökbefogadható és örökbeadott kutyákat. A honlapon található fotók java és a videó is a nevemhez fűződik (kivéve az aktuálisan örökbefogadható kutyákat). </p>
+                <p><a href="https://www.soltimenhely.hu/hu/" target = "blank"><img src={% static '/app_brandon_photography/images/Carousel/Marketingvideo/honlap.JPG' %} / class="referencia"></a></p>
+            </div>
+        </div>
+        <div class="col-xl-4 col-sm-0">
+        </div>
+    </div>
+</div>
+<div class="container" style="height: 3vw;"></div>
+<!-- CSOMAGOK -->
+
+</section>
+
+{% endblock content %}
