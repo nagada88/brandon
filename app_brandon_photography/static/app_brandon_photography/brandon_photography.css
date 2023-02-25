@@ -424,6 +424,13 @@ ul.navbar-nav>li.nav-item>a.nav-link.custom{
   position: relative;
   flex: 0 0 auto;
 }
+
+@media only screen and (max-width: 768px) {
+  .dropdown-menu {
+    position: absolute !important;
+  }
+}
+
 /* ********************************************************************************* */
 /* ********************************************************************************* */
 /* ********************************************************************************* */
@@ -1032,12 +1039,12 @@ h2{
 }
 
 .hirtartalom{
-  font-family: 'Lato', sans-serif;
+  font-family: 'Baloo Thambi 2', cursive;
+  font-size: 17px;
   text-align: center;
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 10px;
-  font-size: 16px;
 }
 
 .wrapperconstraint-gallery{

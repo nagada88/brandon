@@ -27,7 +27,11 @@ def video(request):
     
 def marketing(request):
     return render(request, 'marketing.html')
-        
+
+    
+def impresszum(request):
+    return render(request, 'impresszum.html')
+    
 def intro(request):
     categories = PhotoCategory.objects.all().order_by('priority')
     
