@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
+SITE_ID = 1
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -40,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app_brandon_photography',
     'app_brandon',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'sorl.thumbnail',
 ]
 
