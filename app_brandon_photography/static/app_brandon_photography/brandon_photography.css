@@ -265,12 +265,14 @@
 }
 
 .owl-carousel .prev-slide{
-    background: url("https://img.icons8.com/office/40/null/circled-chevron-left.png") no-repeat scroll 0px 0px;
-      transition: transform 0.5s ease;
+    background: url("/static/app_brandon_photography/images/Icons/icons8-back-arrow-32.png") no-repeat scroll 0px 0px;
+    transition: transform 0.5s ease;
+    opacity: 0.7;
 }
 .owl-carousel .next-slide{
-    background: url("https://img.icons8.com/office/40/null/circled-chevron-right.png") no-repeat scroll 0px 0px;
-      transition: transform 0.5s ease;
+    background: url("/static/app_brandon_photography/images/Icons/icons8-forward-button-32.png") no-repeat scroll 0px 0px;
+    transition: transform 0.5s ease;
+    opacity: 0.7;
 }
 
 .owl-carousel .prev-slide:hover{
@@ -368,7 +370,8 @@
 }
 
 .brand-logo{
-  height:40px;
+  height:25px;
+  margin-bottom: 2px;
 }
 
 .navbar .nav-item.menupoint{
@@ -381,7 +384,7 @@
   }
 
   .brand-logo{
-    height:60px;
+    height:30px;
   }
 } 
 
@@ -822,6 +825,10 @@ h2{
   color: rgb(153,101,21);
 }
 
+.messenger{
+ text-decoration:none;
+ color: #00b7ff;
+}
 
 /* ********************************************************************************* */
 /* FOOTER */
@@ -856,11 +863,16 @@ h2{
   font-size: 17px;
   margin-top: auto;
   margin-bottom: auto;
+  padding-top: 2vw;
 }
 
 .contacts img{
   height: 25px;
   filter: invert(1);
+}
+
+.contacts a{
+  color: #7FDBFF
 }
 
 .carousel-inner, .carousel-inner1{
@@ -1145,9 +1157,8 @@ h3{
   padding: 3px;
 }
 
-
-.kiskedvenc{
-    background: #f0efed;
+.kisallat-steps{
+  background: #cfc3a7;
 }
 
 

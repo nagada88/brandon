@@ -56,20 +56,22 @@
     <div class="carousel-item">
       <img src={% static '/app_brandon_photography/images/Carousel/Kisallatfotozas/Carousel3.jpg' %} class="d-block w-100" style="width: auto; max-width: 100%;">
     </div>
+    <div class="carousel-item">
+      <img src={% static '/app_brandon_photography/images/Carousel/Kisallatfotozas/Carousel4.jpg' %} class="d-block w-100" style="width: auto; max-width: 100%;">
+    </div>
   </div>
 </div>
 
 
-<section class="kiskedvenc">
 
     <div class="container-fluid category-header">
         <div class="row g-0">
             <div class="col-xl-2 col-xs-0 col-sm-0"></div>
             <div class="col-xl-5 col-xs-12 col-sm-12"> 
                 <div class="visioncard vs-card-header">
-                    <h2>Kiskedvenc/Háziállat fotózás</h2>
-                    <p> Egy fotós számára igen komoly kihívás lehet egy állat fotózása, hiszen az portré és tárgyfotózáshoz képest nehezebb hatni az alanyunkra. Éppen ezen nehézségek miatt tölt el örömmel, mikor hosszasan utómunkázok 1-1 jól elkapott pillanatot gazdi és állata között vagy éppen ha egy tréfás állati grimaszt sikerül megörökítenem. </p>
-                    <p>Nálam lehetőség van szabadtéri és beltéri fotózásra is. A fotózás részleteihez, árakhoz és az eddigi fotóimhoz görgess tovább.</p>
+                    <h2>Kutya | Cica | Háziállat fotózás</h2>
+                    <p> Egy fotós számára igen komoly kihívás lehet egy állat fotózása, hiszen az portré és tárgyfotózáshoz képest nehezebb hatni az alanyunkra. Éppen ezen nehézségek miatt tölt el örömmel, mikor hosszasan utómunkázok 1-1 jól elkapott pillanatot gazdi és állata között vagy éppen ha egy tréfás állati grimaszt sikerül megörökítenem. Koncentrálhatunk az állatra vagy készíthetünk közös portrékat is!</p>
+                    <p>Gyere készítsünk igényes fotókat kutyádról, cicádról, hogy igényes örök emléked legyen róla! </p>
                 </div>
             </div>
             <div class="col-xl-5 col-xs-12 col-sm-12">
@@ -82,6 +84,26 @@
     <div class="container-fluid" style="height: 2vw">
     </div>
  
+     <!-- KISALLAT GALERIA -->
+    <div class="container-fluid kisallat-carous">
+        <div class="row">
+            <div class="carousel-wrap-1">
+                <div class="owl-three owl-carousel owl-theme owl-centered">
+                  {% for picture in pictures %}
+                        <a href={{ picture.photo_tumb.url }} data-lightbox="mygallery">
+                                <img src={{ picture.photo_tumb.url }}></img>
+                        </a>
+
+                  {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+<section class="kisallat-steps">
+    <div class="container-fluid" style="height: 50px"><div class="row"><div class="col"></div></div></div>
+    <div class="row"><div class="col"><h2 style="font-size: 44px;">A fotózás lépései</h2></div></div>
+    <div class="container-fluid" style="height: 50px"><div class="row"><div class="col"></div></div></div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-4 col-sm-0">
@@ -90,7 +112,7 @@
                 <div class="visioncard">
                     <img src={% static '/app_brandon_photography/images/Icons/konzultacio.png' %} class="icon" />
                     <h2>Konzultáció</h2>
-                    <p>Nagy hangsúlyt igyekszem fektetni a korrekt kommunikációra. Ha megtetszettek a képek, és úgy gondolod, hogy te is szeretnél kiskedvencedről, vagy kiskedvencedről és gazdáiról egy vidám hangulatú fotózáson profi képeket csinálni, vedd fel velem a kapcsolatot, és egy előre megbeszélt időpontban telefonon/messengeren/videóhívásban megbeszéljük, hogy milyen elképzeléseid vannak.</p>
+                    <p>Nagy hangsúlyt igyekszem fektetni a korrekt kommunikációra. Ha megtetszettek a képek, és úgy gondolod, hogy te is szeretnél kutyádról/cicádról, vagy kiskedvencedről és gazdáiról egy vidám hangulatú fotózáson profi képeket csinálni, vedd fel velem a kapcsolatot, és egy előre megbeszélt időpontban telefonon/messengeren/videóhívásban megbeszéljük, hogy milyen elképzeléseid vannak!</p>
                     <p>Fontos, hogy ez még csak egy ingyenes konzultáció, amely után pontosan meg tudom mondani a fotózás árát, illetve a képek elkészültének idejét. Semmilyen kötelezettséggel nem jár, ezután is ráérsz dönteni, hogy bele szeretnél-e vágni velem.</p>
                 </div>
             </div>
@@ -158,12 +180,16 @@
             </div>
         </div>
     </div>
-    
+    <div class="container-fluid" style="height: 50px"><div class="row"><div class="col"></div></div></div>
+</section>
+ 
 <!-- PARALLAX -->
 <div class="parallax-kisallat"></div>
 
 <!-- CSOMAGOK -->
 <div class="container-fluid arlista" id="arhely">
+    <div class="container-fluid" style="height: 100px"><div class="row"><div class="col"></div></div></div>
+    <div class="row"><div class="col"><h2 style="font-size: 44px; color: rgb(153,101,21);">Csomagjaim</h2></div></div>
     <div class="row">
         <div class="carousel-wrap-1">
             <div class="owl-one owl-carousel owl-theme">    
@@ -172,7 +198,7 @@
                         <div class="wrapperconstraint-gallery">
                             <a href="">
                                 <div class="newspic">
-                                    <img src={% static 'app_brandon_photography/images/Carousel/Kisallatfotozas/P1040279.JPG' %}>
+                                    <img src={% static 'app_brandon_photography/images/Carousel/Kisallatfotozas/kiscsomag.jpg' %}>
                                 </div>
                             </a>
                         </div>
@@ -190,7 +216,7 @@
                         <div class="wrapperconstraint-gallery">
                             <a href="">
                                 <div class="newspic">
-                                    <img src={% static 'app_brandon_photography/images/Carousel/Kisallatfotozas/P1038598-2.jpg' %}>
+                                    <img src={% static 'app_brandon_photography/images/Carousel/Kisallatfotozas/nagycsomag.jpg' %}>
                                 </div>
                             </a>
                         </div>
@@ -226,26 +252,9 @@
 </div>
 
 
-<!-- PARALLAX2 -->
-<div class="parallax-kisallat-2"></div>
 
 
-<!-- KISALLAT GALERIA -->
-<div class="container-fluid kisallat-carous">
-    <div class="row">
-        <div class="carousel-wrap-1">
-            <div class="owl-three owl-carousel owl-theme owl-centered">
-              {% for picture in pictures %}
-                    <a href={{ picture.photo_tumb.url }} data-lightbox="mygallery">
-                            <img src={{ picture.photo_tumb.url }}></img>
-                    </a>
 
-              {% endfor %}
-            </div>
-        </div>
-    </div>
-</div>
 
-</section>
 
 {% endblock content %}
