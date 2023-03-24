@@ -364,14 +364,16 @@
   margin:0 10px;
   padding: 0 10px;
   font-family: 'Unica One';
-  font-size: 1.5rem;
+  font-size: 1.15rem;
+  text-transform: uppercase;
   width: 100%;
   justify-content: right;
 }
 
 .brand-logo{
-  height:35px;
+  height:50px;
   margin-bottom: 0px;
+  margin-left: 22px;
 }
 
 .navbar .nav-item.menupoint{
@@ -404,7 +406,8 @@ ul.navbar-nav>li.nav-item>a.nav-link.custom{
 
 .navbar .btn{
   font-family: 'Unica One';
-  font-size: 1.5rem;
+  font-size: 1.15rem;
+  text-transform: uppercase;
   background-color: transparent;
   border: 0px;
   color: rgb(153,101,21);
@@ -850,7 +853,7 @@ h2{
 }
 
 .footerimage img{
-  height: 60px;
+  height: 100px;
   margin-top: auto;
   margin-bottom: auto;
   padding-top: 10px;
