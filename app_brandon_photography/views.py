@@ -30,7 +30,7 @@ def marketing(request):
 
     
 def impresszum(request):
-    return render(request, 'impresszum.html', {'title': r'nagipix fotó és video | Budapest', 'title': 'nagipix fotó és video | Budapest | impresszum, elérhetőség'})
+    return render(request, 'impresszum.html', {'title': 'nagipix fotó és video | Budapest | impresszum, elérhetőség'})
     
 def intro(request):
     categories = PhotoCategory.objects.all().order_by('priority')
