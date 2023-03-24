@@ -8,29 +8,29 @@ from django.http import HttpResponse
     
 def kiskedvenc(request):
     pictures = Photos.objects.filter(category__name="kiskedvenc")
-    return render(request, 'kiskedvenc.html',  {'pictures': pictures})
+    return render(request, 'kiskedvenc.html',  {'pictures': pictures, 'title': 'vidám kutyafotózás, cicafotózás Budapesten, szabadtéren'})
 
 def eskuvo(request):
     pictures = Photos.objects.filter(category__name="esküvő")
-    return render(request, 'eskuvo.html',  {'pictures': pictures})
+    return render(request, 'eskuvo.html',  {'pictures': pictures, 'title': 'esküvő fotózás, érzelmek megörökítése Budapesten és környékén'})
     
 def termek(request):
     pictures = Photos.objects.filter(category__name="termékfotó")
-    return render(request, 'termek.html',  {'pictures': pictures})
+    return render(request, 'termek.html',  {'pictures': pictures, 'title': 'olcsó és gyors termékfotózás weboldalhoz, webáruházhoz | Budapest'})
 
 def portre(request):
     pictures = Photos.objects.filter(category__name="portré")
-    return render(request, 'portre.html',  {'pictures': pictures})
+    return render(request, 'portre.html',  {'pictures': pictures, 'title': 'portré fotózás tinderre, önéletrajzhoz, facebookra | Budapest'})
     
 def video(request):
-    return render(request, 'video.html')
+    return render(request, 'video.html', {'title': 'nagipix reklámvideó, vállalkozás bemutató, esemény videó'})
     
 def marketing(request):
-    return render(request, 'marketing.html')
+    return render(request, 'marketing.html', {'title': 'nagipix fotó, reklámvideó, weboldal, weblap készítés egy helyen'})
 
     
 def impresszum(request):
-    return render(request, 'impresszum.html')
+    return render(request, 'impresszum.html', {'title': r'nagipix fotó és video | Budapest', 'title': 'nagipix fotó és video | Budapest | impresszum, elérhetőség'})
     
 def intro(request):
     categories = PhotoCategory.objects.all().order_by('priority')
@@ -54,7 +54,7 @@ def intro(request):
 
     form = ContactForm()
     
-    return render(request, 'intro.html', {'categories': categories, 'form': form})
+    return render(request, 'intro.html', {'categories': categories, 'form': form, 'title': 'nagipix fotó és video | Budapest | kutya, esküvő, termék fotózás'})
 
 def kapcsolat(request):
     if request.method == 'POST':

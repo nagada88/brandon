@@ -522,6 +522,12 @@ background-size: 100% calc(2vw + 90px);
 }
  
 /* OTHER ELEMENTS */
+h1{
+  font-family: Unica One;
+  text-transform: uppercase;
+  padding-top: 10px;
+}
+
 body{
   width: 100%;
 }
@@ -683,6 +689,7 @@ transform: scale(1.1);
 
 h2{
   font-family: 'Unica One';
+  text-transform: uppercase;
   color: #757575;
   text-align: center;
 }
@@ -1118,7 +1125,7 @@ h2{
 
 h3{
   font-family: 'Unica One';
-  text-transform: capitalize;
+  text-transform: uppercase;
   font-size: 32px;
 }
 

@@ -12,7 +12,7 @@
                   <a href='gallery.html?gallery_id={{ category.pk }}'>
                     <div class="wrapperconstraint-photo-gallery">
                       <div class="wrapper">
-                          <img src={{ category.category_cover.url }} class="img img-responsive full-width photocover photog " >
+                          <img src={{ category.category_cover.url }} class="img img-responsive full-width photocover photog" alt="{{ category.name|upper }}">
                           <div class="description">
                               {{ category.name|upper }}
                           </div>
