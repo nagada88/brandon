@@ -8,29 +8,29 @@ from django.http import HttpResponse
     
 def kiskedvenc(request):
     pictures = Photos.objects.filter(category__name="kiskedvenc")
-    return render(request, 'kiskedvenc.html',  {'pictures': pictures, 'title': 'vidám kutyafotózás, cicafotózás Budapesten, szabadtéren'})
+    return render(request, 'kiskedvenc',  {'pictures': pictures, 'title': 'vidám kutyafotózás, cicafotózás Budapesten, szabadtéren'})
 
 def eskuvo(request):
     pictures = Photos.objects.filter(category__name="esküvő")
-    return render(request, 'eskuvo.html',  {'pictures': pictures, 'title': 'esküvő fotózás, érzelmek megörökítése Budapesten és környékén'})
+    return render(request, 'eskuvo',  {'pictures': pictures, 'title': 'esküvő fotózás, érzelmek megörökítése Budapesten és környékén'})
     
 def termek(request):
     pictures = Photos.objects.filter(category__name="termékfotó")
-    return render(request, 'termek.html',  {'pictures': pictures, 'title': 'olcsó és gyors termékfotózás weboldalhoz, webáruházhoz | Budapest'})
+    return render(request, 'termek',  {'pictures': pictures, 'title': 'olcsó és gyors termékfotózás weboldalhoz, webáruházhoz | Budapest'})
 
 def portre(request):
     pictures = Photos.objects.filter(category__name="portré")
-    return render(request, 'portre.html',  {'pictures': pictures, 'title': 'portré fotózás tinderre, önéletrajzhoz, facebookra | Budapest'})
+    return render(request, 'portre',  {'pictures': pictures, 'title': 'portré fotózás tinderre, önéletrajzhoz, facebookra | Budapest'})
     
 def video(request):
-    return render(request, 'video.html', {'title': 'nagipix reklámvideó, vállalkozás bemutató, esemény videó'})
+    return render(request, 'video', {'title': 'nagipix reklámvideó, vállalkozás bemutató, esemény videó'})
     
 def marketing(request):
-    return render(request, 'marketing.html', {'title': 'nagipix fotó, reklámvideó, weboldal, weblap készítés egy helyen'})
+    return render(request, 'marketing', {'title': 'nagipix fotó, reklámvideó, weboldal, weblap készítés egy helyen'})
 
     
 def impresszum(request):
-    return render(request, 'impresszum.html', {'title': 'nagipix fotó és video | Budapest | impresszum, elérhetőség'})
+    return render(request, 'impresszum', {'title': 'nagipix fotó és video | Budapest | impresszum, elérhetőség'})
     
 def intro(request):
     categories = PhotoCategory.objects.all().order_by('priority')
@@ -54,7 +54,7 @@ def intro(request):
 
     form = ContactForm()
     
-    return render(request, 'intro.html', {'categories': categories, 'form': form, 'title': 'nagipix fotó és video | Budapest | kutya, esküvő, termék fotózás'})
+    return render(request, 'intro', {'categories': categories, 'form': form, 'title': 'nagipix fotó és video | Budapest | kutya, esküvő, termék fotózás'})
 
 def kapcsolat(request):
     if request.method == 'POST':
@@ -72,10 +72,10 @@ def kapcsolat(request):
                 send_mail(subject, message,  body['email_address'], [body['email_address']])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            return redirect("gallery.html")
+            return redirect("gallery")
 
     form = ContactForm()
-    return render(request, "kapcsolat.html", {'form': form})
+    return render(request, "kapcsolat", {'form': form})
     
 
 def gallery(request):
@@ -102,4 +102,4 @@ def gallery(request):
         bplist.append(2*breakpnumber+1)
 
 
-    return render(request, 'gallery.html', {'pictures': pictures, 'breakpnumber': breakpnumber, 'bplist': bplist, 'category': category})
+    return render(request, 'gallery', {'pictures': pictures, 'breakpnumber': breakpnumber, 'bplist': bplist, 'category': category})
