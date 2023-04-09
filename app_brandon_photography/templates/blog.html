@@ -32,9 +32,6 @@
           </ul>
         </div>
         <li class="nav-item menupoint">
-          <a class="nav-link" href="blog">blog</a>
-        </li>
-        <li class="nav-item menupoint">
           <a class="nav-link" href="intro#contact" target="blank">kapcsolat</a>
         </li>
         <li class="nav-item menupoint">
@@ -48,30 +45,52 @@
   </div>
 </nav>
 
-<!-- IMPRESSZUM -->
-<div class="container-fluid" style="height: 2vw">
-</div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-2 col-0"></div>
-        <div class="col-sm-8 col-12">
-            <div class="box-element">
-                <br><br><br><br><br><br><br><br>
-                <p class="hirtartalom"><b>Cégnév:</b> Nagy Ádám E.V.</p>
-                <p class="hirtartalom"><b>Cím:</b> 2484, Gárdony, Sigray István utca 2b.</p>
-                <p class="hirtartalom"><b>Email:</b> brandbehozunk@gmail.com</p>
-                <p class="hirtartalom"><b>Adószám:</b> 59928496-1-27</p>
-                <p class="hirtartalom"><b>Tárhelyszolgáltató:</b> PythonAnywhere LLP</p>
-                <p class="hirtartalom"><b>Tárhelyszolgáltató széhelye:</b> 5 The Green, Richmond TW9 1PL United Kingdom </p>
-                <p class="hirtartalom"><b>Tárhelyszolgáltató emailcíme:</b> support@pythonanywhere.com</p>
-            </div>
+    <section class="bloglist-section">
+        <div class="container-fluid" style="height: 3vw"></div>        
+        <center><h1>Blog</h1></center><hr style="max-width: 60%; justify-content: center; margin: auto; margin-bottom: 30px;">
+        <h2>Cikkek, bejegyzések - techika | felkészülés | utómunka | filozofálás</h2>
+        <div class="container-fluid" style="height: 4vw"></div>        
+        <div class="container-fluid bloglist">
+        {% for blogpost in bloglist %}
+          {% if forloop.counter0|divisibleby:3 or forloop.first %}
+            <div class="row">
+          {% endif %}
+                    <div class="col-xl-4 col-lg-12 pb-5">
+                        <div class="box-element-blog">
+                            <div class="blogpic-constraint">
+                                <a href="blogpost.html?blogpost_id={{ blogpost.pk }}">
+                                    <div class="blogpic">
+                                        <img src={{ blogpost.main_image.url }} class="cover-blog">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="blog">
+                                <p><h2><center><strong>{{ blogpost.title }}</strong></center></h2></p>
+                                <p class="hirtartalom">{{ blogpost.extract|truncatechars:150 }}</p>
+                                <p class="datum">{{ blogpost.created_at|date:"M d, Y"  }}</p>
+                            </div>
+                        <a href="blogpost.html?blogpost_id={{ blogpost.pk }}" class="btn-elolvasom">
+                            Elolvasom
+                        </a>    
+                        </div>
+                    </div>
+            {% if forloop.counter|divisibleby:3 or forloop.last %}
+                </div>
+                <div class="row" style="height: 50px"></div>  
+            {% endif %}
+            {% endfor %}
         </div>
-        <div class="col-sm-2 col-0"></div>
-    </div>
-</div>
-<div class="container-fluid" style="height: 2vw">
-</div>
-
+        
+    <!-- <div class="containter"> -->
+        <!-- <div class="row"> -->
+            <!-- <div class="col"></div> -->
+            <!-- <div class="col"> -->
+                <!-- {{ bp.content.html|safe }} -->
+            <!-- </div> -->
+            <!-- <div class="col"></div> -->
+        <!-- </div> -->
+    <!-- </div> -->
+    
 </section>
 
 {% endblock content %}

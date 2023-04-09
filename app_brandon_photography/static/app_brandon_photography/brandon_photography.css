@@ -119,6 +119,9 @@
   .box-element{
       box-shadow:hsl(40, 00%, 40%) 0 0 20px;
   }
+  .bloglist{
+    max-width: 85%;
+  }
 }
 
 
@@ -152,6 +155,9 @@
     padding: 40px 50px;
   }
   
+  .bloglist{
+    max-width: 65%;
+  }  
 }
 
 
@@ -179,6 +185,10 @@
   
   .owldiv{
     padding: 40px 50px;
+  }
+
+  .bloglist{
+    max-width: 50%;
   }
 }
 
@@ -223,8 +233,20 @@
   .kisallat-carous{
   width: 95%;
   }
+  
+  .bloglist{
+    max-width: 90%;
+  }
 }
 
+/* ---------------------------------------- */
+/* MORE THAN XXL */
+/* ---------------------------------------- */
+@media (min-width: 1600px) {
+  .bloglist{
+    max-width: 80%;
+  }
+}
 
 
 @media (max-width: 1400px) {
@@ -1315,6 +1337,191 @@ h3{
 
 .hidden {
   display: none;
+}
+
+/* **************************************************************************** */
+/* BLOG SITE */
+/* **************************************************************************** */
+
+.bloglist{
+  position: relative;   
+}
+
+.btn-elolvasom {
+  position: absolute !important;
+  right: 30px;
+  bottom: -30px;
+  border-radius: 12px;
+  -webkit-box-shadow: 0 0 16px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.07);
+  background: #fff;
+  padding: 17px 17px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  transition-property: all;
+  -webkit-transition-property: background, color;
+  transition-property: background, color;
+  display: inline-block;
+  font-size: 20px;
+  color: #000;
+  letter-spacing: 0.0001vw;
+}
+  
+.btn-elolvasom::after {
+  background: url("https://img.icons8.com/ios/50/null/forward--v1.png") no-repeat center center;
+  margin-left: 0px;
+  display: inline-block;
+  content: '';
+  width: 23px;
+  height: 20px;
+  vertical-align: -3px;
+}
+
+.btn-elolvasom:hover{
+    color: #fff;
+    background: #691687;
+}
+
+.box-element-blog{
+  box-shadow:hsl(40, 20%, 50%) 0 0 50px;
+  background-color: #dee2e3;
+  color: #464747;
+  border-radius: 1px;
+  height: 600px;
+  padding-left: 0;
+  font-size: 14px;
+  justify-content: center;
+  border-radius: 20px;
+  margin-top:20px;
+  margin-left: auto;
+  margin-right: auto;
+  position:relative;
+}
+
+.blog{
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+}
+
+
+.blogpic{
+  height: 300px;
+  display: flex;
+  overflow: hidden;
+  border-radius: 20px;
+  transition: transform 1s ease;
+}
+
+.blogpic:hover{
+  transform: scale(1.1);
+  transform: rotate(2deg) scale(1.1);
+}
+
+.cover-blog{
+  object-fit: cover;
+  width:100%;
+  height:auto;
+}
+
+.blogpic-constraint{
+  overflow:hidden;
+  height: 300px;
+  margin-top: 3px;
+  border-radius: 20px;
+}
+
+.box-element-blog a:hover, a:visited, a:link, a:active {
+  text-decoration: none;
+}
+
+.bloglist-section h1{
+  font-family: 'Unica One';
+  color: #757575;
+  font-size: 50px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.bloglist-section h2{
+  font-family: 'Roboto';
+}
+
+.blog h2{
+  text-transform: none;
+  font-family: 'Baloo Thambi 2', cursive;
+  color: #464747;
+}
+
+.blogpost-header-picture{
+  border-radius: 30px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.blog-post h1{
+  font-family: Open Sans,sans-serif;
+  text-transform: none;
+}
+
+.blog-post{
+  font-family: 'Lato';
+  font-size: 18px;
+}
+
+.blog-content{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.btn-blog-vissza {
+  border-radius: 12px;
+  -webkit-box-shadow: 0 0 16px rgba(0, 0, 0, 0.07);
+  box-shadow:hsl(40, 20%, 50%) 0 0 20px;
+  background: #d4d1cb;
+  padding: 10px 20px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  transition-property: all;
+  -webkit-transition-property: background, color;
+  transition-property: background, color;
+  display: inline-block;
+  font-size: 20px;
+  color: #000;
+  letter-spacing: 0.0001vw;
+  transition: all 0.3s ease-out;
+}
+  
+.btn-blog-vissza::before {
+  background: url("https://img.icons8.com/external-kmg-design-outline-color-kmg-design/32/null/external-backward-arrow-kmg-design-outline-color-kmg-design.png") no-repeat center center;
+  margin-left: 0px;
+  display: inline-block;
+  content: '';
+  width: 40px;
+  height: 40px;
+  vertical-align: -12px;
+}
+
+.btn-blog-vissza:hover{
+  color: #fff;
+  background: #691687;
+  transform:scale(1.01);
+}
+
+.datum{
+  font-size: 14px;
+  text-align: right;
+  margin-right:30px;
+  font-family: 'Baloo Thambi 2', cursive;
+}
+
+.back-wrapper{
+  text-align: center;
+  padding-top: 50px;
 }
 
 /* div { outline: 1px dashed blue } span { outline: 1px dashed green } */

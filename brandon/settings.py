@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-kgqt!=yk_&)0(_)i*$v_jt0$9w24x&siqf=h*+$dj5ytie!0v^
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880
 
 # Application definition
 SITE_ID = 1
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # 'django.contrib.sites',
     'django.contrib.sitemaps',
     'sorl.thumbnail',
+    'django_quill',
 ]
 
 MIDDLEWARE = [

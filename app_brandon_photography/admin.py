@@ -1,7 +1,6 @@
 from django.contrib import admin
 from app_brandon_photography.models import PhotoCategory, Photos
-
-
+from .models import BlogPost
 
 
 class PhotosAdmin(admin.ModelAdmin):
@@ -17,3 +16,4 @@ class PhotosAdmin(admin.ModelAdmin):
 # Register your models here.
 admin.site.register(Photos, PhotosAdmin)
 admin.site.register(PhotoCategory)
+admin.site.register(BlogPost)

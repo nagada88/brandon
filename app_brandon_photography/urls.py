@@ -21,5 +21,7 @@ urlpatterns = [
     re_path(r'portre', views.portre, name='portre'),
     re_path(r'video', views.video, name='video'),
     re_path(r'marketing', views.marketing, name='marketing'),
+    path(r'blog', views.blog, name='blog'),
+    re_path(r'blogpost', views.blogpost, name='blogpost'),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     re_path(r'kapcsolat', views.kapcsolat, name='kapcsolat'),]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

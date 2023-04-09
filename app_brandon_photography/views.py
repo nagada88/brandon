@@ -28,7 +28,6 @@ def video(request):
 def marketing(request):
     return render(request, 'marketing.html', {'title': 'nagipix fotó, reklámvideó, weboldal, weblap készítés egy helyen'})
 
-    
 def impresszum(request):
     return render(request, 'impresszum.html', {'title': 'nagipix fotó és video | Budapest | impresszum, elérhetőség'})
     
@@ -77,7 +76,17 @@ def kapcsolat(request):
     form = ContactForm()
     return render(request, "kapcsolat.html", {'form': form})
     
+def blog(request):
+    bloglist = BlogPost.objects.all()
+    
+    return render(request, "blog.html", {"bloglist": bloglist})
 
+def blogpost(request):
+    blogpost_id = request.GET.get('blogpost_id')
+    blogpost = BlogPost.objects.get(id=blogpost_id)
+    
+    return render(request, 'blogpost.html',  {'blogpost': blogpost,})
+    
 def gallery(request):
     
     category_id = request.GET.get('gallery_id')

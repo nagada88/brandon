@@ -8,6 +8,7 @@ from sorl.thumbnail import get_thumbnail
 from django.utils.html import format_html
 from django.conf import settings
 from django.conf.urls.static import static
+from django_quill.fields import QuillField
 # Create your models here.
 
 class PhotoCategory(models.Model):
@@ -88,6 +89,15 @@ class Photos(models.Model):
             return format_html('<img src="{}" width="{}" height="{}">'.format(_thumbnail.url, _thumbnail.width, _thumbnail.height))
         return ""
 
+
+class BlogPost(models.Model):
+    main_image = models.ImageField(upload_to='app_brandon_photography/img/photos/')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    user = models.CharField(max_length=200, default="Nagy Ádám")
+    title = models.CharField(max_length=200)
+    extract = models.CharField(max_length=200)
+    content = QuillField()
 
 
 
