@@ -8,6 +8,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Roboto:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
 
 /* ---------------------------------------- */
 /* COL-XS */
@@ -1463,7 +1464,7 @@ h3{
 }
 
 .blog-post h1{
-  font-family: Open Sans,sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 52px;
   color: rgb(153,101,21);
   font-weight: 900;
@@ -1471,13 +1472,16 @@ h3{
 }
 
 .blog-content h2{
-  font-family: 'Roboto';
+  font-family: 'Montserrat', sans-serif;
   text-align: left;
+  font-size: 28px;
+  text-transform: none;
 }
 
 .blog-post{
-  font-family: 'Lato';
-  font-size: 18px;
+  font-family: 'Baloo Thambi 2', cursive;
+  font-size: 17px;
+  line-height: 1.5;
 }
 
 .blog-content{
