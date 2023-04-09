@@ -1084,7 +1084,7 @@ h2{
 .hirtartalom{
   font-family: 'Baloo Thambi 2', cursive;
   font-size: 17px;
-  text-align: center;
+  text-align: left;
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 10px;
@@ -1404,6 +1404,7 @@ h3{
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 10px;
+  text-align: left;
 }
 
 
@@ -1463,7 +1464,15 @@ h3{
 
 .blog-post h1{
   font-family: Open Sans,sans-serif;
+  font-size: 52px;
+  color: rgb(153,101,21);
+  font-weight: 900;
   text-transform: none;
+}
+
+.blog-content h2{
+  font-family: 'Roboto';
+  text-align: left;
 }
 
 .blog-post{
@@ -1475,6 +1484,8 @@ h3{
   padding-left: 50px;
   padding-right: 50px;
 }
+
+
 
 .btn-blog-vissza {
   border-radius: 12px;
@@ -1514,9 +1525,10 @@ h3{
 
 .datum{
   font-size: 14px;
-  text-align: right;
+  text-align: left;
   margin-right:30px;
   font-family: 'Baloo Thambi 2', cursive;
+  color: rgb(153,101,21);
 }
 
 .back-wrapper{

@@ -67,7 +67,6 @@
                             <div class="blog">
                                 <p><h2><center><strong>{{ blogpost.title }}</strong></center></h2></p>
                                 <p class="hirtartalom">{{ blogpost.extract|truncatechars:150 }}</p>
-                                <p class="datum">{{ blogpost.created_at|date:"M d, Y"  }}</p>
                             </div>
                         <a href="blogpost.html?blogpost_id={{ blogpost.pk }}" class="btn-elolvasom">
                             Elolvasom

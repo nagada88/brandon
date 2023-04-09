@@ -57,7 +57,7 @@
         <div class="col-lg-12 col-xl-6 blog-content">
             <img src={{ blogpost.main_image.url }} class="blogpost-header-picture"><br><br>
             <h1>{{ blogpost.title }}</h1>
-            <p class="datum">{{ blogpost.created_at|date:"M d, Y"  }}</p><hr style="max-width: 80%; margin-bottom: 30px;">
+            <p class="datum">{{ blogpost.created_at|date:"M d, Y"  }}</p>
             {{ blogpost.content.html|safe }}
             <div class="back-wrapper"><a href="blog" class="btn-blog-vissza">Vissza a többi poszthoz!</a></div>
         </div>
