@@ -9,6 +9,7 @@ from django.utils.html import format_html
 from django.conf import settings
 from django.conf.urls.static import static
 from django_quill.fields import QuillField
+from django.urls import reverse
 # Create your models here.
 
 class PhotoCategory(models.Model):
@@ -98,6 +99,9 @@ class BlogPost(models.Model):
     title = models.CharField(max_length=200)
     extract = models.CharField(max_length=200)
     content = QuillField()
+
+    def get_absolute_url(self):
+        return "/blogpost.html?blogpost_id=%i" % self.id
 
 
 

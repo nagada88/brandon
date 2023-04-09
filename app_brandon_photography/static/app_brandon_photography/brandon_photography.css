@@ -1452,9 +1452,10 @@ h3{
 }
 
 .blog h2{
+  font-family: 'Montserrat', sans-serif;
+  text-align: left;
+  font-size: 25px;
   text-transform: none;
-  font-family: 'Baloo Thambi 2', cursive;
-  color: #464747;
 }
 
 .blogpost-header-picture{
