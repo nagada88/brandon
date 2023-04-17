@@ -79,13 +79,13 @@ def kapcsolat(request):
 def blog(request):
     bloglist = BlogPost.objects.all()
     
-    return render(request, "blog.html", {"bloglist": bloglist})
+    return render(request, "blog.html", {"bloglist": bloglist, 'title': 'blog, blogposztok, értekezések és elmélkedések fotózásról'})
 
 def blogpost(request):
     blogpost_id = request.GET.get('blogpost_id')
     blogpost = BlogPost.objects.get(id=blogpost_id)
     
-    return render(request, 'blogpost.html',  {'blogpost': blogpost,})
+    return render(request, 'blogpost.html',  {'blogpost': blogpost, 'title': blogpost.title})
     
 def gallery(request):
     
