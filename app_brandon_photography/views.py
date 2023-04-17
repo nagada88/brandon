@@ -77,7 +77,7 @@ def kapcsolat(request):
     return render(request, "kapcsolat.html", {'form': form})
     
 def blog(request):
-    bloglist = BlogPost.objects.all()
+    bloglist = BlogPost.objects.all().order_by('-created_at')
     
     return render(request, "blog.html", {"bloglist": bloglist, 'title': 'blog, blogposztok, értekezések és elmélkedések fotózásról'})
 
