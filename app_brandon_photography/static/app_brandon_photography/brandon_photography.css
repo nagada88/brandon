@@ -208,13 +208,13 @@
   }
   
   .fokartya-foto{
-    height: 300px;
+    height: 380px;
     width: auto;
-    -ms-transform: translateX(-70px);
-    -o-transform: translateX(-70px);
-    -moz-transform: translateX(-70px);
-    -webkit-transform: translateX(-70px);
-    transform: translateX(-100px) translateY(20%);
+    -ms-transform: translateX(-100px);
+    -o-transform: translateX(-100px);
+    -moz-transform: translateX(-100px);
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100px) translateY(25%);
   }
   
   .category-header{
@@ -1113,6 +1113,12 @@ h2{
   transition: transform 0.5s ease;
 }
 
+.ajandekleiras{
+  padding: 7vw;
+  /* padding-top: 7vw; */
+  /* padding-bottom: 7vw; */
+}
+
 .newspic:hover{
   transform: rotate(2deg) scale(1.05);
 }
@@ -1249,7 +1255,7 @@ h3{
 
 .category-header{
   padding-top: 2vw;
-  padding-bottom: 3vw;
+  padding-bottom: 5vw;
   background: #cfc3a7;
   color: #5c5e5c;
   font-family: 'Baloo Thambi 2', cursive;
