@@ -381,6 +381,11 @@
 
 .navbar-light .navbar-nav .nav-link {
   color: rgb(153,101,21);
+  transition: 0.2s linear;
+}
+
+.nav-link:hover{
+  transform: scale(1.05);
 }
 
 .navbar .navbar-nav {
