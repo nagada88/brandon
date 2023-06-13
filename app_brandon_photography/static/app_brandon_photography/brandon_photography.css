@@ -59,6 +59,18 @@
   .btn-group-vertical > .btn, .btn-group > .btn {
     transform: translateX(-10px);
   }
+  
+  .parallax, .parallax1, .parallax-kisallat, .parallax-portre{
+    background-size: 200%;
+  }
+  
+  .wrapperconstraint-gallery, .newspic{
+    height: 250px;
+  }
+  
+  .box-element{
+    height: 600px;
+  }
 }
 
 
@@ -66,6 +78,14 @@
 /* COL-SM */
 /* ---------------------------------------- */
 @media (min-width: 576px){
+  .box-element{
+    height: 700px;
+  }
+  
+  .wrapperconstraint-gallery, .newspic{
+    height: 350px;
+  }
+  
   .fokartya-foto{
     height: 300px;
     width: auto;
@@ -122,6 +142,9 @@
   }
   .bloglist{
     max-width: 85%;
+  }
+  .parallax, .parallax1, .parallax-kisallat, .parallax-portre{
+    background-size: 200%;
   }
 }
 
@@ -191,6 +214,11 @@
   .bloglist{
     max-width: 50%;
   }
+
+  .parallax, .parallax1, .parallax-kisallat, .parallax-portre{
+    background-size: 100%;
+  }
+  
 }
 
 
@@ -493,7 +521,7 @@ ul.navbar-nav>li.nav-item>a.nav-link.custom{
 }
 
 .custom-shape-divider-bottom-1648235894 .shape-fill {
-    fill: #FFFFFF;
+    fill: #e6e6e6;
 }
 
 
@@ -735,8 +763,8 @@ h2{
 }
 
 .activity-cont{
-  padding-top: 8vw;
-  padding-bottom: 8vw;
+  padding-top: 5vw;
+  padding-bottom: 2vw;
   background: #cfc3a7;
 }
 
@@ -745,7 +773,7 @@ h2{
   line-height: 2;
   font-family: 'Unica One';
   font-size: 24px;
-  padding-bottom: 6vw;
+  padding-bottom: 4vw;
 }
 
 .activity hr{
@@ -758,7 +786,7 @@ h2{
 }
 
 .activity-icon{
-  height: 200px;
+  height: 150px;
   margin: auto;
   opacity: 70%;
   -moz-transition: all 0.8s ease-out;  /* FF4+ */
@@ -938,7 +966,6 @@ h2{
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .parallax1 {
@@ -1034,7 +1061,6 @@ h2{
 
 
 .box-element{
-  height: 700px;
   padding-left: 0;
   font-size: 14px;
   justify-content: center;
@@ -1051,8 +1077,8 @@ h2{
 
 .box-element h2{
   font-family: 'Baloo Thambi 2', cursive;
-  font-size: 28px;
-  margin-top: 30px;
+  font-size: 24px;
+  margin-top: 15px;
 }
 
 .box-element hr{
@@ -1098,7 +1124,6 @@ h2{
 
 .wrapperconstraint-gallery{
   overflow:hidden;
-  height: 350px;
   margin-top: 3px;
   border-radius: 20px;
 }
@@ -1110,7 +1135,6 @@ h2{
 }
 
 .newspic{
-  height: 350px;
   width: auto;
   object-fit: contain;
   display: flex;
