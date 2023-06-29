@@ -7,7 +7,7 @@ from django.http import HttpResponse
 # Create your views here.
     
 def kiskedvenc(request):
-    pictures = Photos.objects.filter(category__name="kiskedvenc")
+    pictures = Photos.objects.filter(category__name="kutyafotózás")
     return render(request, 'kutyafotozas.html',  {'pictures': pictures, 'title': 'szabadtéri kutyafotózás Budapesten és környékén'})
 
 def eskuvo(request):
