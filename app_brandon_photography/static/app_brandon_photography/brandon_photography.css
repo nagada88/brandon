@@ -1142,10 +1142,60 @@ h2{
   transition: transform 0.5s ease;
 }
 
-.ajandekleiras{
-  padding: 7vw;
-  /* padding-top: 7vw; */
-  /* padding-bottom: 7vw; */
+/* ********************************************** */
+/* ** AJANDEKKARTYA */
+/* ********************************************** */
+.ajandekkartya{
+  font-size: 17px;
+  color: #5c5e5c !important;
+}
+.accordition-ajandekkartya .accordion-button {
+  font-size: 18px;
+  color: #5c5e5c;
+}
+
+.accordition-ajandekkartya .accordion-item {
+  color: #5c5e5c;
+}
+
+.accordition-ajandekkartya .accordion-button:not(.collapsed) {
+  /* color: rgb(153,101,21); */
+  background-color: transparent;
+}
+
+.accordition-ajandekkartya .accordion{
+  --bs-accordion-btn-focus-box-shadow: 0;
+}
+
+.ajandekkartya h2{
+  font-size: 22px;
+  color: rgb(153,101,21);
+}
+
+.accordition-ajandekkartya{
+  padding-top: 6vw;
+  padding-bottom: 4vw;
+}
+
+.ajandekkartya-card{
+  justify-content: center;
+  border-radius: 20px;
+  margin-top:20px;
+  margin-left: auto;
+  margin-right: auto;
+  position:relative;
+  background-color: #ebe8e8;
+  text-align: center;
+  transition: 0.3s linear;
+  box-shadow:hsl(40, 00%, 40%) 0 0 25px; 
+  padding: 5vw;
+  margin: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
 }
 
 .newspic:hover{
@@ -1158,8 +1208,8 @@ h2{
 
 .segitscard-button {
   border-radius: 12px;
-  -webkit-box-shadow: 0 0 16px rgba(0, 0, 0, 0.15);
-  box-shadow: 0 0 16px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 4px 0 6px 0px rgba(0, 0, 0, 0.15);
   background: #e6d8b8;
   border: none;
   padding: 5px 20px;
@@ -1178,7 +1228,7 @@ h2{
 
 .segitscard-button:hover{
   color: #fff;
-  background: #691687;
+  background: rgb(153,101,21);;
 }
 
 h3{
@@ -1188,6 +1238,10 @@ h3{
 }
 
 /* VIDEO WRAPPER*/
+.video .category-header{
+  padding-bottom: 10vw;
+}
+
 .videoWrapper {
   position: relative;
   padding-bottom: 56.25%;
@@ -1244,7 +1298,7 @@ h3{
   color: #5c5e5c;
   transition: 0.3s linear;
   box-shadow:hsl(40, 00%, 40%) 0 0 25px; 
-  padding: 10px 5vw 70px 5vw;
+  padding: 20px 5vw 70px 5vw;
   margin: 30px; 
 }
 
