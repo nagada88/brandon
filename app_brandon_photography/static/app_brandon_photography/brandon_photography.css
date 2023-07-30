@@ -843,7 +843,8 @@ h2{
 }
 
 .fg-left{
-  padding-top: 220px;
+  padding-top: 190px;
+  text-align: center;
 }
 
 .fg-right{
@@ -891,9 +892,28 @@ h2{
   color: rgb(153,101,21);
 }
 
-.messenger{
- text-decoration:none;
- color: #00b7ff;
+.contact-button{
+ width: 50%;
+ color: white;
+ font-size:14px;
+ display:block;
+ border-radius: 30px;
+ background-color: #555956;
+ padding: 6px;
+ text-align: center;
+ text-decoration: none;
+ transition: 0.3s linear;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 4px 0 6px 0px rgba(0, 0, 0, 0.15);
+}
+
+.contact-button:hover{
+ background-color: gray;
+ color: white;  
+}
+
+.contact-button img{
+  height: 30px;
 }
 
 /* ********************************************************************************* */
