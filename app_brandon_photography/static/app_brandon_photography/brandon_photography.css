@@ -71,6 +71,10 @@
   .box-element{
     height: 600px;
   }
+  
+  .contact-button{
+   width: 100%;
+  }
 }
 
 
@@ -145,6 +149,9 @@
   }
   .parallax, .parallax1, .parallax-kisallat, .parallax-portre{
     background-size: 200%;
+  }
+  .contact-button{
+   width: 100%;
   }
 }
 
@@ -251,6 +258,10 @@
   
   .btn-group-vertical > .btn, .btn-group > .btn {
     transform: translateX(0);
+  }
+  
+  .contact-button{
+   width: 50%;
   }
 }
 
@@ -893,7 +904,6 @@ h2{
 }
 
 .contact-button{
- width: 50%;
  color: white;
  font-size:14px;
  display:block;
