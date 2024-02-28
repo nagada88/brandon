@@ -49,7 +49,7 @@ def intro(request):
                 send_mail(subject, message,  body['email_address'], [body['email_address']])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            return redirect("gallery.html")
+            return redirect("sikeresmail.html")
 
     form = ContactForm()
     
@@ -71,7 +71,7 @@ def kapcsolat(request):
                 send_mail(subject, message,  body['email_address'], [body['email_address']])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            return redirect("gallery.html")
+            return redirect("sikeresmail.html")
 
     form = ContactForm()
     return render(request, "kapcsolat.html", {'form': form})
@@ -112,3 +112,6 @@ def gallery(request):
 
 
     return render(request, 'gallery.html', {'pictures': pictures, 'breakpnumber': breakpnumber, 'bplist': bplist, 'category': category})
+    
+def sikeresmail(request):
+    return render(request, 'sikeresmail.html', {'title': 'sikeres email küldés'})

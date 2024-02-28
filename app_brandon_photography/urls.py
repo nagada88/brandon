@@ -18,6 +18,7 @@ urlpatterns = [
     re_path(r'kutyafotozas', views.kiskedvenc, name='kutyafotozas'),
     path(r'eskuvo', views.eskuvo, name='eskuvo'),
     re_path(r'impresszum', views.impresszum, name='impresszum'),
+    re_path(r'sikeresmail', views.sikeresmail, name='sikeresmail'),
     re_path(r'termek', views.termek, name='termek'),
     re_path(r'portre', views.portre, name='portre'),
     re_path(r'video', views.video, name='video'),
