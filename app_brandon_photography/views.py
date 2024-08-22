@@ -68,7 +68,7 @@ def kapcsolat(request):
             message = "\n".join(body.values())
 
             try:
-                send_mail(subject, message,  body['email_address'], [body['email_address']])
+                send_mail(subject, message,  body['email_address'], ['info@nagipix.hu'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect("sikeresmail.html")
