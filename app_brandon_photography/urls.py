@@ -12,8 +12,8 @@ sitemaps = {
 }
 
 urlpatterns = [
-    re_path(r'^$', views.intro, name='intro'),
-    re_path(r'intro', views.intro, name='intro'),
+    re_path(r'^$', views.kiskedvenc, name='intro'),
+    re_path(r'intro', views.kiskedvenc, name='intro'),
     re_path(r'gallery', views.gallery, name='gallery'),
     re_path(r'kutyafotozas', views.kiskedvenc, name='kutyafotozas'),
     path(r'eskuvo', views.eskuvo, name='eskuvo'),
