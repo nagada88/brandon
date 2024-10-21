@@ -44,23 +44,25 @@
     </div>
  
      <!-- KISALLAT GALERIA -->
-    <div class="container-fluid kisallat-carous">
-        <div class="row">
-            <div class="carousel-wrap-1">
-                <div class="owl-three owl-carousel owl-theme owl-centered">
-                  {% for picture in pictures %}
-                        <a href={{ picture.photo_tumb.url }} data-lightbox="mygallery">
-                                <img src={{ picture.photo_tumb.url }}></img>
-                        </a>
+	<h2 style="font-size: 44px; color: rgb(153,101,21);">Szabadtéri fotózásaim</h2>
+		<div class="container-fluid kisallat-carous">
+			<div class="row">
+				<div class="carousel-wrap-1">
+					<div class="owl-three owl-carousel owl-theme owl-centered">
+					{% for picture in pictures %}
+							<a href={{ picture.photo_tumb.url }} data-lightbox="mygallery">
+									<img src={{ picture.photo_tumb.url }}></img>
+							</a>
 
-                  {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
+					{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+
 <section class="ajandekkartya"  id="ajandekkartya">
     <div class="container-fluid" style="height: 50px"><div class="row"><div class="col"></div></div></div>
-    <div class="container-fluid"><div class="row"><div class="col"><h2 style="font-size: 44px;">Szabadtéri kutyafotózás ajándékba?</h2></div></div></div>
+    <div class="container-fluid"><div class="row"><div class="col"></div></div></div>
     <div class="container-fluid" style="height: 50px"><div class="row"><div class="col"></div></div></div>
     <div class="container-fluid">
         <div class="row">
@@ -69,9 +71,10 @@
             </div>
             <div class="col-xl-6">
                 <div class="ajandekkartya-card" id="ajandekutalvany">
+					<h2 style="font-size: 44px;">Kutyafotózás ajándékba?</h2><br>
                 <h2>Ajándékozz kutyás ismerősödnek egy remek hangulatú fotózást akár ajándék fotóskönyvvel!</h2>
                 <p>
-                Szabadtéri <a href="#arhely">csomagjaim</a> megvásárolhatók ajándékutalványként, amit kérhetsz online, illetve postai úton is. Mindkét esetben mellékelek egy részletesebb leírást, hogy az ajándékozott képbe kerüljön tulajdonképpen milyen fotózásra is nevezted be őt, és hol tudja felvenni velem a kapcsolatot időpontegyeztetés kapcsán :). </p>
+                Szabadtéri és műtermi <a href="#arhely">csomagom</a> is megvásárolható ajándékutalványként, amit kérhetsz online, illetve postai úton is. Mindkét esetben mellékelek egy részletesebb leírást, hogy az ajándékozott képbe kerüljön tulajdonképpen milyen fotózásra is nevezted be őt, és hol tudja felvenni velem a kapcsolatot időpontegyeztetés kapcsán :). </p>
                 <a href="kapcsolat" target="_blank"><button class="segitscard-button">Érdekel</button></a>
                 </div>
             </div>
@@ -89,7 +92,8 @@
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                           <div class="accordion-body">
-                            A kis/nagy csomagot magában foglaló ajándékutalványok Budapesten és közvetlen vonzáskörzetében érvényesek. Ha távolabb lakna az ajándékozott, kérlek említsd meg!<br><br>
+                            A szabadtéri csomagot magában foglaló ajándékutalvány Budapesten és közvetlen vonzáskörzetében érvényesek. Ha távolabb lakna az ajándékozott, kérlek említsd meg!<br>
+							A bejáratott stúdióm Budapesten a Baross utcában található, viszont igény szerint más kutyabarát stúdióba is mehetünk :).<br><br>
                           </div>
                         </div>
                       </div>
@@ -127,33 +131,33 @@
     </div>
 </section>
 
-<!-- CSOMAGOK -->
 <section class="kisallat-steps">
+	<div class="container-fluid" style="height: 50px"><div class="row"><div class="col"></div></div></div>
+	<h2  style="font-size: 44px; color: rgb(153,101,21);">Műtermi fotózásaim</h2>
+	<div class="container-fluid kisallat-carous">
+		<div class="row">
+			<div class="carousel-wrap-1">
+				<div class="owl-three owl-carousel owl-theme owl-centered">
+				{% for picture in studiopictures %}
+						<a href={{ picture.photo_tumb.url }} data-lightbox="mygallery">
+								<img src={{ picture.photo_tumb.url }}></img>
+						</a>
+
+				{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- CSOMAGOK -->
+<section>
 	<div class="container-fluid arlista" id="arhely">
 		<div class="container-fluid" style="height: 100px"><div class="row"><div class="col"></div></div></div>
 		<div class="row"><div class="col"><h2 style="font-size: 44px; color: rgb(153,101,21);">Csomagjaim</h2></div></div>
 		<div class="row">
 			<div class="carousel-wrap-1">
 				<div class="owl-one owl-carousel owl-theme">    
-					<div class="owldiv">
-						<div class="box-element">
-							<div class="wrapperconstraint-gallery">
-								<a href="">
-									<div class="newspic">
-										<img src={% static 'app_brandon_photography/images/Carousel/Kisallatfotozas/kiscsomag.jpg' %} alt="kis csomag fotó, fekete kutya ül varázslatos háttérrel">
-									</div>
-								</a>
-							</div>
-							<div class="news">
-								<p><h2><center>Szabadtéri Kis Csomag</center></h2></p><hr>
-								<p class="hirtartalom">~1 óra fotózás</p>
-								<p class="hirtartalom">15 darab retusált kép</p>
-								<p class="hirtartalom">1 darab facebook borító kép</p>
-								<p class="hirtartalom"><h3>25.000 Ft</h3></p>
-								<a href="kapcsolat" target="_blank"><button class="segitscard-button">Érdekel</button></a>
-							</div>
-						</div>
-					</div>
 					<div  class="owldiv">
 						<div class="box-element">
 							<div class="wrapperconstraint-gallery">
@@ -164,10 +168,10 @@
 								</a>
 							</div>
 							<div class="news">
-								<p><h2><center>Szabadtéri Nagy Csomag</center></h2></p><hr>
+								<p><h2><center>Szabadtéri Csomag</center></h2></p><hr>
 								<p class="hirtartalom">Minimum 1,5 óra fotózás</p>
 								<p class="hirtartalom">20 darab retusált kép</p>
-								<p class="hirtartalom">3 darab facebook borító kép</p>
+								<p class="hirtartalom">1 héten belül felhőben átadva</p>
 								<p class="hirtartalom"><h3>33.000 Ft</h3></p>
 								<a href="kapcsolat" target="_blank"><button class="segitscard-button">Érdekel</button></a>
 							</div>
@@ -186,8 +190,8 @@
 								<p><h2><center>Beltéri Csomag</center></h2></p><hr>
 								<p class="hirtartalom">1 óra fotózás stúdióban (a stúdió árat tartalmazza)</p>
 								<p class="hirtartalom">15 darab retusált kép</p>
-								<p class="hirtartalom">1 darab facebook borító kép</p>
-								<p class="hirtartalom"><h3>33.000 Ft</h3></p><br>
+								<p class="hirtartalom">Tartalmazza a stúdió bérlés árát is</p>
+								<p class="hirtartalom"><h3>40.000 Ft</h3></p><br>
 								<a href="kapcsolat" target="_blank"><button class="segitscard-button">Érdekel</button></a>
 							</div>
 						</div>
@@ -215,60 +219,57 @@
 	</div>
 </section>
 
-<div class="container-fluid" style="height: 50px"><div class="row"><div class="col"></div></div></div>
-<div class="container-fluid"><div class="row"><div class="col"><h2 style="font-size: 44px;">A fotózás lépései</h2></div></div></div>
-<div class="container-fluid" style="height: 50px"><div class="row"><div class="col"></div></div></div>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-xl-4 col-sm-0">
-		</div>
-		<div class="col-xl-7 col-sm-12"> 
-			<div class="visioncard">
-				<img src={% static '/app_brandon_photography/images/Icons/konzultacio.png' %} class="icon" alt="konzultáció"/>
-				<h2>Konzultáció</h2>
-				<p>Ha megtetszettek a képek, és te is szeretnél egy vidám hangulatú fotózásról profi képekkel hazatérni, vedd fel velem a kapcsolatot telefonon, messengeren vagy emailben és mondd el, hogy milyen elképzeléseid vannak! Megbeszéljük a helyszínt, a lehetséges időpontokat, és hogy mivel készülj a fotózásra!</p>
+<section class="kisallat-steps">
+	<div class="container-fluid" style="height: 50px"><div class="row"><div class="col"></div></div></div>
+	<div class="container-fluid"><div class="row"><div class="col"><h2 style="font-size: 44px;">A fotózás lépései</h2></div></div></div>
+	<div class="container-fluid" style="height: 50px"><div class="row"><div class="col"></div></div></div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-4 col-sm-0">
+			</div>
+			<div class="col-xl-7 col-sm-12"> 
+				<div class="visioncard">
+					<img src={% static '/app_brandon_photography/images/Icons/konzultacio.png' %} class="icon" alt="konzultáció"/>
+					<h2>Konzultáció</h2>
+					<p>Ha megtetszettek a képek, és te is szeretnél egy vidám hangulatú fotózásról profi képekkel hazatérni, vedd fel velem a kapcsolatot telefonon, messengeren vagy emailben és mondd el, hogy milyen elképzeléseid vannak! Megbeszéljük a helyszínt, a lehetséges időpontokat, és hogy mivel készülj a fotózásra!</p>
+				</div>
+			</div>
+			<div class="col-xl-1 col-sm-0">
 			</div>
 		</div>
-		<div class="col-xl-1 col-sm-0">
-		</div>
 	</div>
-</div>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-xl-1 col-sm-0">
-		</div>
-		<div class="col-xl-7 col-sm-12"> 
-			<div class="visioncard">
-				<img src={% static '/app_brandon_photography/images/Icons/fotozas.png' %} class="icon" alt="fotózás"/>
-				<h2>Fotózzunk</h2>
-				<p>Hiszen ezért vagy itt! Az előre megbeszélt helyszínre és időpontra hozd el kiskedvenced és lássunk neki. Szentelünk időt arra is, hogy mindenki feloldódjon, és nem fogjuk svájci atomórával mérni a fotózásra szentelt időt, csak abban a kivételes esetben, ha sietsz valahová!</p>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-1 col-sm-0">
+			</div>
+			<div class="col-xl-7 col-sm-12"> 
+				<div class="visioncard">
+					<img src={% static '/app_brandon_photography/images/Icons/fotozas.png' %} class="icon" alt="fotózás"/>
+					<h2>Fotózzunk</h2>
+					<p>Hiszen ezért vagy itt! Az előre megbeszélt helyszínre és időpontra hozd el kiskedvenced és lássunk neki. Szentelünk időt arra is, hogy mindenki feloldódjon, és nem fogjuk svájci atomórával mérni a fotózásra szentelt időt, csak abban a kivételes esetben, ha sietsz valahová!</p>
+				</div>
+			</div>
+			<div class="col-xl-4 col-sm-0">
 			</div>
 		</div>
-		<div class="col-xl-4 col-sm-0">
-		</div>
 	</div>
-</div>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-xl-4 col-sm-0">
-		</div>
-		<div class="col-xl-7 col-sm-12"> 
-			<div class="visioncard">
-				<img src={% static '/app_brandon_photography/images/Icons/share.png' %} class="icon" alt="átadás, megosztás"/>
-				<h2>Képek átadása, fizetés</h2>
-				<p>A képeket két héten belül kidolgozom és felhőtárhelyen átadom. Ezután kiállítom a számlát és te kifizeted a fotózást. Örömmel veszem az őszinte visszajelzéseket, hisz ezek segítségével én is fejlődöm.</p>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-4 col-sm-0">
+			</div>
+			<div class="col-xl-7 col-sm-12"> 
+				<div class="visioncard">
+					<img src={% static '/app_brandon_photography/images/Icons/share.png' %} class="icon" alt="átadás, megosztás"/>
+					<h2>Képek átadása, fizetés</h2>
+					<p>A képeket két héten belül kidolgozom és felhőtárhelyen átadom. Ezután kiállítom a számlát és te kifizeted a fotózást. Örömmel veszem az őszinte visszajelzéseket, hisz ezek segítségével én is fejlődöm.</p>
+				</div>
+			</div>
+			<div class="col-xl-1 col-sm-0">
 			</div>
 		</div>
-		<div class="col-xl-1 col-sm-0">
-		</div>
 	</div>
-</div>
-
-<div class="container-fluid" style="height: 50px"><div class="row"><div class="col"></div></div></div>
-
- 
-<!-- PARALLAX -->
-<div class="parallax-kisallat"></div>
+	<div class="container-fluid" style="height: 50px"><div class="row"><div class="col"></div></div></div>
+</section>
 
 
 

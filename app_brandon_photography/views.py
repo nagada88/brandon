@@ -8,7 +8,8 @@ from django.http import HttpResponse
     
 def kiskedvenc(request):
     pictures = Photos.objects.filter(category__name="kutyafotózás")
-    return render(request, 'kutyafotozas.html',  {'pictures': pictures, 'title': 'szabadtéri kutyafotózás Budapesten és környékén'})
+    studiopictures = Photos.objects.filter(category__name="studio")
+    return render(request, 'kutyafotozas.html',  {'pictures': pictures, 'studiopictures': studiopictures, 'title': 'szabadtéri kutyafotózás Budapesten és környékén'})
 
 def eskuvo(request):
     pictures = Photos.objects.filter(category__name="esküvő")

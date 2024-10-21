@@ -320,6 +320,10 @@
     background: #2caae1;
 }
 
+.owl-dots {
+  display: none;
+}
+
 .owl-carousel .owl-prev.disabled,
 .owl-carousel .owl-next.disabled{
   pointer-events: none;
@@ -383,8 +387,8 @@
 /* ---------------------------------------- */
 /* OWL THREE CAROUSEL ELEMENTS */
 /* ---------------------------------------- */
-.owl-three img{
-  height: 350px;
+.owl-three img, .owl-five img{
+  height: 500px;
   width: auto !important;
   object-fit: cover;
   display: flex;
@@ -974,7 +978,7 @@ h2{
 .carousel-inner, .carousel-inner1{
  width: 100%;
  overflow: hidden;
- max-height: 800px;
+ max-height: 1000px;
 }
 
 
