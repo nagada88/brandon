@@ -75,6 +75,9 @@
   .contact-button{
    width: 100%;
   }
+  .owl-three img {
+    height: 300px;
+  }
 }
 
 
@@ -153,6 +156,9 @@
   .contact-button{
    width: 100%;
   }
+  .owl-three img {
+    height: 300px;
+  }
 }
 
 
@@ -188,7 +194,10 @@
   
   .bloglist{
     max-width: 65%;
-  }  
+  }
+  .owl-three img {
+    height: 500px;
+  }
 }
 
 
@@ -269,7 +278,7 @@
   }
   .box-element {
     height: 800px;
-  } 
+  }
 }
 
 
@@ -395,7 +404,6 @@
 /* OWL THREE CAROUSEL ELEMENTS */
 /* ---------------------------------------- */
 .owl-three img, .owl-five img{
-  height: 500px;
   width: auto !important;
   object-fit: cover;
   display: flex;
