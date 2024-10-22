@@ -263,6 +263,13 @@
   .contact-button{
    width: 50%;
   }
+
+  .wrapperconstraint-gallery, .newspic{
+    height: 450px;
+  }
+  .box-element {
+    height: 800px;
+  } 
 }
 
 
@@ -774,7 +781,7 @@ h2{
 
 .container-fluid.bio{
   background-color: #e6e6e6;
-  padding-top: 7vw;
+  padding-top: 5vw;
 }
 
 .activity-cont{
@@ -978,7 +985,7 @@ h2{
 .carousel-inner, .carousel-inner1{
  width: 100%;
  overflow: hidden;
- max-height: 1000px;
+ max-height: 1200px;
 }
 
 
