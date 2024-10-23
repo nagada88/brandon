@@ -78,6 +78,9 @@
   .owl-three img {
     height: 300px;
   }
+  .ajandekkartya h2, .fotozasaim-h2{
+    font-size:24px;
+  }
 }
 
 
@@ -197,6 +200,9 @@
   }
   .owl-three img {
     height: 500px;
+  }
+  .ajandekkartya h2, .fotozasaim-h2{
+    font-size:48px;
   }
 }
 
@@ -1216,9 +1222,9 @@ h2{
   --bs-accordion-btn-focus-box-shadow: 0;
 }
 
-.ajandekkartya h2{
-  font-size: 22px;
+.ajandekkartya h2, .fotozasaim-h2{
   color: rgb(153,101,21);
+  margin-top: 15px;
 }
 
 .accordition-ajandekkartya{
