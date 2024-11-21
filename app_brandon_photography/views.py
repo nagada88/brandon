@@ -3,13 +3,36 @@ from .models import *
 from .forms import ContactForm
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
+from django.http import JsonResponse
+from django.template.loader import render_to_string
 
 # Create your views here.
     
 def kiskedvenc(request):
     pictures = Photos.objects.filter(category__name="kutyafotózás")
     studiopictures = Photos.objects.filter(category__name="studio")
-    return render(request, 'kutyafotozas.html',  {'pictures': pictures, 'studiopictures': studiopictures, 'title': 'szabadtéri kutyafotózás Budapesten és környékén'})
+    reviews = Review.objects.all()[:3]    
+    for review in reviews:
+        review.remaining_stars = 5 - review.stars
+
+    return render(request, 'kutyafotozas.html',  {'pictures': pictures, 'studiopictures': studiopictures, 'title': 'szabadtéri kutyafotózás Budapesten és környékén', 'reviews': reviews})
+
+
+def load_more_reviews(request):
+    # Dinamikus betöltés a frontendről érkező `offset` alapján
+    print("GET paraméterek:", request.GET)  # Debugolás
+    offset = int(request.GET.get('offset', 0))
+    print("Offset érték:", offset)          # Ellenőrizd, hogy az offset beérkezett-e
+    limit = 3
+    reviews = Review.objects.all()[offset:offset + limit]
+    more_reviews_exist = Review.objects.count() > offset + limit  # Ellenőrizzük, van-e még vélemény
+
+    for review in reviews:
+        review.remaining_stars = 5 - review.stars
+
+    # Renderelés rész template-be
+    return render(request, 'review_partial.html', {'reviews': reviews, 'more_review_exist': more_reviews_exist})
+
 
 def eskuvo(request):
     pictures = Photos.objects.filter(category__name="esküvő")

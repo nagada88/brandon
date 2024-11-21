@@ -34,6 +34,14 @@ class PhotoCategory(models.Model):
     #
     #     return self.category_cover_image_url
 
+class Review(models.Model):
+    name = models.CharField(max_length=100)
+    stars = models.PositiveSmallIntegerField()  # 1-től 5-ig terjedő érték
+    description = models.TextField()
+
+    def __str__(self):
+        return f"{self.name} ({self.stars} stars)"
+
 class Photos(models.Model):
     category = models.ForeignKey(PhotoCategory, on_delete=models.CASCADE)
     main_site_visibility = models.BooleanField()

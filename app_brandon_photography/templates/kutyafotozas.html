@@ -1,7 +1,7 @@
 {% extends 'main.html'%}
 {% load static %}       
 {% block content %}
-
+{% load custom_filters %}
 
 <!-- CAROUSEL -->
 <div id="carouselExampleInterval" class="carousel slide carousel-fade" data-bs-ride="carousel"  data-bs-pause="false">  
@@ -246,6 +246,38 @@
 					</div>
 		</div>
 	</div>
+
+	<div class="container-fluid bio pb-5">
+		<div class="row">
+			<h2>Rólam írták</h2>
+		</div>
+		<div class="container-fluid reviews-container">
+			<div class="row">
+				{% for review in reviews %}
+					<div class=" col-xs-12 col-sm-12 col-lg-4">
+						<div class="review-card">
+							<h3>{{ review.name }}</h3>
+							<div class="stars">
+								{{ '★'|repeat:review.stars }}
+								{{ '☆'|repeat:review.remaining_stars }}
+							</div>
+							<p>{{ review.description }}</p>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<button 
+			id="load-more-button"
+			class="load-more" 
+			hx-get="{% url 'load_more_reviews' %}" 
+			hx-swap="beforeend" 
+			hx-target=".reviews-container" 
+			data-offset="3">
+			Mutass több véleményt
+		</button>
+	</div>
+
 </section>
 
 <section>

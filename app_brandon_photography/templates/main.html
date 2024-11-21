@@ -28,6 +28,7 @@
 <script src={% static 'app_brandon_photography/js/lightbox-plus-jquery.min.js' %}></script>
 <script src={% static 'app_brandon_photography/js/jquery.min.js' %}></script>
 <script src={% static 'app_brandon_photography/js/owl.carousel.min.js' %}></script>
+<script src="https://unpkg.com/htmx.org"></script>
 
 <!-- own css -->
 <link rel="stylesheet" href={% static 'app_brandon_photography/brandon_photography.css' %}>
@@ -171,5 +172,46 @@ $(document).ready(function(){
 });
 
 </script>
+
+<script>
+
+document.body.addEventListener("htmx:configRequest", (e) => {
+    const button = e.target;
+    if (button && button.classList.contains("load-more")) {
+        const offset = button.getAttribute("data-offset");
+        console.log("Aktuális offset:", offset); // Ellenőrizd az offset értékét
+
+        // Módosítsd az URL-t a HTMX kérésben
+        const url = new URL(e.detail.path, window.location.origin);
+        url.searchParams.set("offset", offset);
+        e.detail.path = url.toString(); // Frissítsd a HTMX által küldött URL-t
+
+        console.log("Frissített URL:", url.toString());
+    }
+});
+
+document.body.addEventListener("htmx:afterRequest", (e) => {
+    // Ellenőrizzük, hogy a válasz tartalmazza-e a `data-more-reviews` attribútumot
+    const responseContainer = e.target.closest(".reviews-container").lastElementChild;
+
+    if (responseContainer && responseContainer.dataset.moreReviews === "False") {
+        // Elrejtjük a "Mutass több véleményt" gombot
+        const button = document.getElementById("load-more-button");
+        if (button) {
+            button.style.display = "none";
+        }
+    } else {
+        // Ha van még vélemény, frissítsük az offset-et
+        const button = document.getElementById("load-more-button");
+        if (button) {
+            let offset = parseInt(button.getAttribute("data-offset"), 10);
+            offset += 3; // Növeljük az offset-et
+            button.setAttribute("data-offset", offset);
+        }
+    }
+});
+
+</script>
+
 <script src={% static 'app_brandon_photography/brandon_photography.js' %}></script>
 </html>
