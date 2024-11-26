@@ -26,5 +26,5 @@ urlpatterns = [
     path(r'blog', views.blog, name='blog'),
     re_path(r'blogpost', views.blogpost, name='blogpost'),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
-    path('load-more-reviews/', views.load_more_reviews, name='load_more_reviews'),
+    path(r'review', views.review_upload, name='review'),
     re_path(r'kapcsolat', views.kapcsolat, name='kapcsolat'),]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -220,9 +220,9 @@
 </section>
 
 <!-- BIO -->
- <section>
-	<div class="container-fluid bio pb-5">
-		<div class="row bio-card pb-5">
+ <section class="bio">
+	<div class="container-fluid bio">
+		<div class="row bio-card">
 					<div class="col-xl-6 col-12 bio-pict-wrapper">
 						<img src="{% static 'app_brandon_photography/img/profile_picture.jpg' %}" class="bio-picture" alt="Nagy Ádám fotó, fotós, videókészítő"><br><br>
 						<h1>A KAMERA MÖGÖTT</h1>
@@ -245,36 +245,12 @@
 		</div>
 	</div>
 
-	<!-- <div class="container-fluid bio pb-5">
-		<div class="row">
-			<h2>Rólam írták</h2>
-		</div>
-		<div class="container-fluid reviews-container">
+	<div class="container bio ">
+		<h2>Rólam írták</h2>
 			<div class="row">
-				{% for review in reviews %}
-					<div class=" col-xs-12 col-sm-12 col-lg-4">
-						<div class="review-card">
-							<h3>{{ review.name }}</h3>
-							<div class="stars">
-								{{ '★'|repeat:review.stars }}
-								{{ '☆'|repeat:review.remaining_stars }}
-							</div>
-							<p>{{ review.description }}</p>
-						</div>
-					</div>
-				{% endfor %}
+				{% include 'review_partial.html' %}
 			</div>
-		</div>
-		<button 
-			id="load-more-button"
-			class="load-more" 
-			hx-get="{% url 'load_more_reviews' %}" 
-			hx-swap="beforeend" 
-			hx-target=".reviews-container" 
-			data-offset="3">
-			Mutass több véleményt
-		</button>
-	</div> -->
+	</div>
 
 </section>
 
