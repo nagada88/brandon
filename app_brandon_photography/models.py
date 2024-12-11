@@ -10,6 +10,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django_quill.fields import QuillField
 from django.urls import reverse
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -144,7 +145,23 @@ class BlogPost(models.Model):
         return "/blogpost.html?blogpost_id=%i" % self.id
 
 
+class Availability(models.Model):
+    AVAILABLE = 'green'
+    PARTIALLY_BOOKED = 'yellow'
+    UNAVAILABLE = 'red'
+    
+    STATUS_CHOICES = [
+        (AVAILABLE, 'Available'),
+        (PARTIALLY_BOOKED, 'Partially Booked'),
+        (UNAVAILABLE, 'Unavailable'),
+    ]
 
+    date = models.DateField(unique=True)  # Egyedi dátum
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default=AVAILABLE)
+    notes = models.TextField(blank=True, null=True)  # Opcionális jegyzetek az admin számára
+
+    def __str__(self):
+        return f"{self.date} - {self.get_status_display()}"
 
 
 

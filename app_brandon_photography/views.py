@@ -5,6 +5,8 @@ from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.contrib.auth.decorators import login_required
+from django.utils.timezone import now
 
 # Create your views here.
     
@@ -35,6 +37,100 @@ def load_more_reviews(request):
     except EmptyPage:
         reviews = paginator.page(paginator.num_pages)
     return reviews
+
+@login_required
+def edit_availability(request, date):
+    if request.method == 'POST':
+        availability = get_object_or_404(Availability, date=date)
+        new_status = request.POST.get('status')
+        if new_status in dict(Availability.STATUS_CHOICES).keys():
+            availability.status = new_status
+            availability.save()
+            return JsonResponse({'status': 'success'})
+    return JsonResponse({'status': 'error'})
+
+from django.shortcuts import render
+from django.utils.timezone import now
+from calendar import monthrange
+import calendar
+from datetime import date
+from .models import Availability
+from django.contrib.auth.decorators import login_required
+
+def calendar_view(request):
+    # Ellenőrizzük, hogy be van-e jelentkezve
+    if request.user.is_authenticated:
+        return admin_calendar_view(request)
+    return public_calendar_view(request)
+
+
+
+def generate_calendar_data(year, month):
+    """Naptár adatok generálása egy adott év-hónap alapján."""
+    first_day_of_month = date(year, month, 1)
+    last_day_of_month = date(year, month, monthrange(year, month)[1])
+
+    # Foglaltságok lekérése az adott hónapra
+    availabilities = Availability.objects.filter(date__range=[first_day_of_month, last_day_of_month])
+    availability_map = {a.date: a.status for a in availabilities}
+
+    # Naptár generálása
+    cal = calendar.Calendar(firstweekday=0)
+    month_days = cal.itermonthdates(year, month)
+
+    # Napokhoz státusz hozzárendelése
+    calendar_data = []
+    for day in month_days:
+        status = availability_map.get(day, 'green') if day.month == month else 'empty'
+        calendar_data.append({'date': day, 'status': status})
+    return calendar_data
+
+def public_calendar_view(request):
+    today = now().date()
+    month = int(request.GET.get('month', today.month))
+    year = int(request.GET.get('year', today.year))
+
+    calendar_data = generate_calendar_data(year, month)
+    prev_month = (month - 1) if month > 1 else 12
+    prev_year = year - 1 if month == 1 else year
+    next_month = (month + 1) if month < 12 else 1
+    next_year = year + 1 if month == 12 else year
+
+    context = {
+        'calendar_data': calendar_data,
+        'year': year,
+        'month': month,
+        'prev_month': prev_month,
+        'prev_year': prev_year,
+        'next_month': next_month,
+        'next_year': next_year,
+        'is_admin': False  # Publikus nézet
+    }
+    return render(request, 'public_calendar.html', context)
+
+@login_required
+def admin_calendar_view(request):
+    today = now().date()
+    month = int(request.GET.get('month', today.month))
+    year = int(request.GET.get('year', today.year))
+
+    calendar_data = generate_calendar_data(year, month)
+    prev_month = (month - 1) if month > 1 else 12
+    prev_year = year - 1 if month == 1 else year
+    next_month = (month + 1) if month < 12 else 1
+    next_year = year + 1 if month == 12 else year
+
+    context = {
+        'calendar_data': calendar_data,
+        'year': year,
+        'month': month,
+        'prev_month': prev_month,
+        'prev_year': prev_year,
+        'next_month': next_month,
+        'next_year': next_year,
+        'is_admin': True  # Admin nézet
+    }
+    return render(request, 'admin_calendar.html', context)
 
 
 def eskuvo(request):

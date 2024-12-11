@@ -1,0 +1,42 @@
+{% extends 'main.html'%}
+{% load static %}       
+{% block content %}
+
+<div class="container mt-4">
+    <h1>Elérhetőség - {{ year }}. {{ month }}</h1>
+    <div class="d-flex justify-content-between mb-3">
+        <a href="?month={{ prev_month }}&year={{ prev_year }}" class="btn btn-outline-primary">&larr; Előző hónap</a>
+        <a href="?month={{ next_month }}&year={{ next_year }}" class="btn btn-outline-primary">Következő hónap &rarr;</a>
+    </div>
+    <table class="table table-bordered text-center">
+        <thead>
+            <tr>
+                {% for day in "H K Sz Cs P Szo V".split() %}
+                    <th>{{ day }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for week in calendar_data|slice:7 %}
+            <tr>
+                {% for day in week %}
+                <td class="{% if day.status == 'green' %}bg-success text-white{% elif day.status == 'red' %}bg-danger text-white{% elif day.status == 'yellow' %}bg-warning{% else %}bg-light{% endif %}">
+                    {% if day.status != 'empty' %}
+                        {% if is_admin %}
+                            <!-- Admin nézet esetén szerkeszthető -->
+                            <div hx-post="{% url 'edit_availability' date=day.date %}" hx-target="this" hx-swap="outerHTML">
+                                {{ day.date.day }}
+                            </div>
+                        {% else %}
+                            <!-- Publikus nézet -->
+                            {{ day.date.day }}
+                        {% endif %}
+                    {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
