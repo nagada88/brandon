@@ -144,6 +144,8 @@ class BlogPost(models.Model):
     def get_absolute_url(self):
         return "/blogpost.html?blogpost_id=%i" % self.id
 
+    def __str__(self):
+        return self.title
 
 class Availability(models.Model):
     AVAILABLE = 'green'
