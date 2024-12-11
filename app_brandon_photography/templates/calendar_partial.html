@@ -1,15 +1,19 @@
-{% load static %}    
-
 <h2><center>{{ year }}. {{ month_name }}</center></h2>
 <div class="d-flex justify-content-between mb-3">
-    <a href="?month={{ prev_month }}&year={{ prev_year }}" class="btn btn-outline-primary" 
-       hx-get="?month={{ prev_month }}&year={{ prev_year }}" 
+    <a href="{% url 'calendar_partial' %}?month={{ prev_month }}&year={{ prev_year }}" 
+       class="btn btn-outline-primary calendar-navigation" 
+       hx-get="{% url 'calendar_partial' %}?month={{ prev_month }}&year={{ prev_year }}" 
        hx-target="#calendar-container" 
-       hx-swap="innerHTML">&larr; Előző hónap</a>
-    <a href="?month={{ next_month }}&year={{ next_year }}" class="btn btn-outline-primary" 
-       hx-get="?month={{ next_month }}&year={{ next_year }}" 
+       hx-swap="innerHTML">
+       &larr; Előző hónap
+    </a>
+    <a href="{% url 'calendar_partial' %}?month={{ next_month }}&year={{ next_year }}" 
+       class="btn btn-outline-primary calendar-navigation" 
+       hx-get="{% url 'calendar_partial' %}?month={{ next_month }}&year={{ next_year }}" 
        hx-target="#calendar-container" 
-       hx-swap="innerHTML">Következő hónap &rarr;</a>
+       hx-swap="innerHTML">
+       Következő hónap &rarr;
+    </a>
 </div>
 <table class="table table-bordered text-center">
     <thead>

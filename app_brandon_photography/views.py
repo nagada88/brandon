@@ -7,9 +7,84 @@ from django.template.loader import render_to_string
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.contrib.auth.decorators import login_required
 from django.utils.timezone import now
-
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+from calendar import Calendar
+from datetime import date
 # Create your views here.
-    
+
+# Magyar hónapnevek
+HUNGARIAN_MONTH_NAMES = [
+    "", "Január", "Február", "Március", "Április", "Május", "Június",
+    "Július", "Augusztus", "Szeptember", "Október", "November", "December"
+]
+
+def get_month_name(month):
+    return HUNGARIAN_MONTH_NAMES[month]
+
+def generate_calendar_context(year, month, is_admin=False):
+    """Naptár kontextus létrehozása."""
+    cal = Calendar(firstweekday=0)
+    month_days = list(cal.itermonthdates(year, month))
+
+    # Napok lekérése az adatbázisból
+    availability_map = {
+        a.date: a.status for a in Availability.objects.filter(date__year=year, date__month=month)
+    }
+
+    # Naptár adatok státuszokkal
+    calendar_data = []
+    for day in month_days:
+        status = 'green' if day.month == month else 'empty'
+        if day.month == month:
+            status = availability_map.get(day, 'green')
+        calendar_data.append({'date': day, 'status': status})
+
+    # Hetekre bontás
+    calendar_data = [calendar_data[i:i + 7] for i in range(0, len(calendar_data), 7)]
+
+    return {
+        'calendar_data': calendar_data,
+        'year': year,
+        'month': month,
+        'month_name': get_month_name(month),
+        'days_of_week': ["H", "K", "Sz", "Cs", "P", "Szo", "V"],
+        'prev_month': (month - 1) if month > 1 else 12,
+        'prev_year': year - 1 if month == 1 else year,
+        'next_month': (month + 1) if month < 12 else 1,
+        'next_year': year + 1 if month == 12 else year,
+        'is_admin': is_admin
+    }
+
+def calendar_view(request):
+    """Vált a publikus és az admin naptár között."""
+    today = date.today()
+    month = int(request.GET.get('month', today.month))
+    year = int(request.GET.get('year', today.year))
+    context = generate_calendar_context(year, month, is_admin=request.user.is_authenticated)
+    template = 'admin_calendar.html' if request.user.is_authenticated else 'public_calendar.html'
+    return render(request, template, context)
+
+
+@login_required
+def mark_days_unavailable(request):
+    if request.method == 'POST':
+        selected_dates = request.POST.getlist('selected_dates[]', [])
+        if not selected_dates:
+            return JsonResponse({'status': 'error', 'message': 'Nincsenek kijelölt dátumok.'}, status=400)
+
+        for date_str in selected_dates:
+            try:
+                date_obj = date.fromisoformat(date_str)
+                availability, created = Availability.objects.get_or_create(date=date_obj)
+                availability.status = 'red'  # Foglaltra állítjuk
+                availability.save()
+            except ValueError:
+                return JsonResponse({'status': 'error', 'message': f'Érvénytelen dátum: {date_str}'}, status=400)
+
+        return JsonResponse({'status': 'success', 'message': f'{len(selected_dates)} nap foglaltra állítva.'})
+    return JsonResponse({'status': 'error', 'message': 'Hibás kérés.'}, status=405)
+
 def kiskedvenc(request):
     pictures = Photos.objects.filter(category__name="kutyafotózás")
     studiopictures = Photos.objects.filter(category__name="studio")
@@ -37,101 +112,6 @@ def load_more_reviews(request):
     except EmptyPage:
         reviews = paginator.page(paginator.num_pages)
     return reviews
-
-@login_required
-def edit_availability(request, date):
-    if request.method == 'POST':
-        availability = get_object_or_404(Availability, date=date)
-        new_status = request.POST.get('status')
-        if new_status in dict(Availability.STATUS_CHOICES).keys():
-            availability.status = new_status
-            availability.save()
-            return JsonResponse({'status': 'success'})
-    return JsonResponse({'status': 'error'})
-
-from django.shortcuts import render
-from django.utils.timezone import now
-from calendar import monthrange
-import calendar
-from datetime import date
-from .models import Availability
-from django.contrib.auth.decorators import login_required
-
-def calendar_view(request):
-    # Ellenőrizzük, hogy be van-e jelentkezve
-    if request.user.is_authenticated:
-        return admin_calendar_view(request)
-    return public_calendar_view(request)
-
-
-
-def generate_calendar_data(year, month):
-    """Naptár adatok generálása egy adott év-hónap alapján."""
-    first_day_of_month = date(year, month, 1)
-    last_day_of_month = date(year, month, monthrange(year, month)[1])
-
-    # Foglaltságok lekérése az adott hónapra
-    availabilities = Availability.objects.filter(date__range=[first_day_of_month, last_day_of_month])
-    availability_map = {a.date: a.status for a in availabilities}
-
-    # Naptár generálása
-    cal = calendar.Calendar(firstweekday=0)
-    month_days = cal.itermonthdates(year, month)
-
-    # Napokhoz státusz hozzárendelése
-    calendar_data = []
-    for day in month_days:
-        status = availability_map.get(day, 'green') if day.month == month else 'empty'
-        calendar_data.append({'date': day, 'status': status})
-    return calendar_data
-
-def public_calendar_view(request):
-    today = now().date()
-    month = int(request.GET.get('month', today.month))
-    year = int(request.GET.get('year', today.year))
-
-    calendar_data = generate_calendar_data(year, month)
-    prev_month = (month - 1) if month > 1 else 12
-    prev_year = year - 1 if month == 1 else year
-    next_month = (month + 1) if month < 12 else 1
-    next_year = year + 1 if month == 12 else year
-
-    context = {
-        'calendar_data': calendar_data,
-        'year': year,
-        'month': month,
-        'prev_month': prev_month,
-        'prev_year': prev_year,
-        'next_month': next_month,
-        'next_year': next_year,
-        'is_admin': False  # Publikus nézet
-    }
-    return render(request, 'public_calendar.html', context)
-
-@login_required
-def admin_calendar_view(request):
-    today = now().date()
-    month = int(request.GET.get('month', today.month))
-    year = int(request.GET.get('year', today.year))
-
-    calendar_data = generate_calendar_data(year, month)
-    prev_month = (month - 1) if month > 1 else 12
-    prev_year = year - 1 if month == 1 else year
-    next_month = (month + 1) if month < 12 else 1
-    next_year = year + 1 if month == 12 else year
-
-    context = {
-        'calendar_data': calendar_data,
-        'year': year,
-        'month': month,
-        'prev_month': prev_month,
-        'prev_year': prev_year,
-        'next_month': next_month,
-        'next_year': next_year,
-        'is_admin': True  # Admin nézet
-    }
-    return render(request, 'admin_calendar.html', context)
-
 
 def eskuvo(request):
     pictures = Photos.objects.filter(category__name="esküvő")
@@ -179,6 +159,9 @@ def intro(request):
     return render(request, 'intro.html', {'categories': categories, 'form': form, 'title': 'nagipix fotó és video | Budapest | kutyafotózás, esküvő és portré'})
 
 def kapcsolat(request):
+    today = date.today()
+    month = int(request.GET.get('month', today.month))
+    year = int(request.GET.get('year', today.year))
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -195,9 +178,13 @@ def kapcsolat(request):
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect("sikeresmail.html")
+        
+    context = generate_calendar_context(year, month, is_admin=request.user.is_authenticated)
 
     form = ContactForm()
-    return render(request, "kapcsolat.html", {'form': form})
+    context.update({'form': form})
+    print(context.keys())
+    return render(request, "kapcsolat.html", context)
     
 def blog(request):
     bloglist = BlogPost.objects.all().order_by('-created_at')
@@ -236,5 +223,13 @@ def gallery(request):
 
     return render(request, 'gallery.html', {'pictures': pictures, 'breakpnumber': breakpnumber, 'bplist': bplist, 'category': category})
     
+def calendar_partial_view(request):
+    """A naptár részleges nézete, HTMX-hez."""
+    today = date.today()
+    month = int(request.GET.get('month', today.month))
+    year = int(request.GET.get('year', today.year))
+    context = generate_calendar_context(year, month)
+    return render(request, 'calendar_partial.html', context)
+
 def sikeresmail(request):
     return render(request, 'sikeresmail.html', {'title': 'sikeres email küldés'})

@@ -28,5 +28,7 @@ urlpatterns = [
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path(r'review', views.review_upload, name='review'),
     path(r'calendar/', views.calendar_view, name='public_calendar'),
-    path('edit/<str:date>/', views.edit_availability, name='edit_availability'),
+    # path('edit/<str:date>/', views.edit_availability, name='edit_availability'),
+    path('mark-unavailable/', views.mark_days_unavailable, name='mark_days_unavailable'),
+    path('calendar-partial/', views.calendar_partial_view, name='calendar_partial'),
     re_path(r'kapcsolat', views.kapcsolat, name='kapcsolat'),]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

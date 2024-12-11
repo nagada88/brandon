@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="container mt-4">
-    <h1>Elérhetőség - {{ year }}. {{ month }}</h1>
+    <h1><center>Elérhetőség - {{ year }}. {{ month_name }}</center></h1>
     <div class="d-flex justify-content-between mb-3">
         <a href="?month={{ prev_month }}&year={{ prev_year }}" class="btn btn-outline-primary">&larr; Előző hónap</a>
         <a href="?month={{ next_month }}&year={{ next_year }}" class="btn btn-outline-primary">Következő hónap &rarr;</a>
@@ -11,26 +11,22 @@
     <table class="table table-bordered text-center">
         <thead>
             <tr>
-                {% for day in "H K Sz Cs P Szo V".split() %}
+                {% for day in days_of_week %}
                     <th>{{ day }}</th>
                 {% endfor %}
             </tr>
         </thead>
         <tbody>
-            {% for week in calendar_data|slice:7 %}
+            {% for week in calendar_data %}
             <tr>
                 {% for day in week %}
-                <td class="{% if day.status == 'green' %}bg-success text-white{% elif day.status == 'red' %}bg-danger text-white{% elif day.status == 'yellow' %}bg-warning{% else %}bg-light{% endif %}">
+                <td class="calendar-cell {% if day.status == 'green' %}bg-success text-white{% elif day.status == 'red' %}bg-danger text-white{% elif day.status == 'yellow' %}bg-warning{% else %}bg-light{% endif %}"
+                    data-date="{{ day.date|date:'Y-m-d' }}"
+                    onclick="toggleSelection(this)">
                     {% if day.status != 'empty' %}
-                        {% if is_admin %}
-                            <!-- Admin nézet esetén szerkeszthető -->
-                            <div hx-post="{% url 'edit_availability' date=day.date %}" hx-target="this" hx-swap="outerHTML">
-                                {{ day.date.day }}
-                            </div>
-                        {% else %}
-                            <!-- Publikus nézet -->
+                        <div>
                             {{ day.date.day }}
-                        {% endif %}
+                        </div>
                     {% endif %}
                 </td>
                 {% endfor %}
@@ -39,4 +35,72 @@
         </tbody>
     </table>
 </div>
+
+<br><br>
+<div class="mt-3">
+    <center><button id="mark-unavailable" class="btn btn-danger">Foglaltra állítás</button></center>
+</div>
+<br><br>
+
+<!-- JavaScript kód -->
+<script>
+    // Kijelölt dátumok tárolása
+    let selectedDates = [];
+
+    // Dátum kijelölésének vagy eltávolításának kezelése
+    function toggleSelection(cell) {
+        const date = cell.getAttribute('data-date'); // Lekérjük a cella dátumát
+        if (!date) {
+            console.error("Hiba: A cellának nincs 'data-date' attribútuma!");
+            return;
+        }
+
+        if (selectedDates.includes(date)) {
+            // Dátum eltávolítása, ha már ki van jelölve
+            selectedDates = selectedDates.filter(d => d !== date);
+            cell.classList.remove('border-primary');  // Kijelölés eltávolítása
+        } else {
+            // Dátum hozzáadása, ha még nincs kijelölve
+            selectedDates.push(date);
+            cell.classList.add('border-primary');  // Kék szegély hozzáadása
+        }
+    }
+
+    // Foglaltra állítás gomb eseménykezelője
+    document.getElementById('mark-unavailable').addEventListener('click', () => {
+        if (selectedDates.length === 0) {
+            alert('Nincs kijelölt nap!');
+            return;
+        }
+
+        // Formázott adatok küldése a szerver felé
+        const formData = new URLSearchParams();
+        selectedDates.forEach(date => formData.append('selected_dates[]', date)); // Egyenként adjuk hozzá a dátumokat
+
+        fetch("{% url 'mark_days_unavailable' %}", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'X-CSRFToken': '{{ csrf_token }}'  // CSRF token biztosítása
+            },
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Hálózati hiba: ${response.status}`);
+            }
+            return response.json();  // Válasz JSON formátumra alakítása
+        })
+        .then(data => {
+            if (data.status === 'success') {
+                alert(data.message);
+                location.reload();  // Oldal frissítése a sikeres művelet után
+            } else {
+                alert(data.message); // Hibás válasz esetén üzenet megjelenítése
+            }
+        })
+        .catch(error => console.error('Hiba:', error)); // Hibakezelés
+    });
+</script>
+
 {% endblock content %}

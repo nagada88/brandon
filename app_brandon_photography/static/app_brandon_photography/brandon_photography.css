@@ -1802,6 +1802,43 @@ REVIEW **********************************
   color: #555;
 }
 
+
+.calendar-cell {
+  width: 100px;
+  height: 100px;
+  vertical-align: middle;
+}
+.calendar-cell > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.bg-success{
+  background-color: #7a997f !important;
+}
+
+.calendar-navigation {
+  color: #757575 !important;
+  border-color: #757575 !important;
+}
+
+.calendar-navigation:hover {
+  color: white !important;
+  border-color: #757575 !important;
+  background-color: darkgray;
+}
+
+.hasznalati{
+  font-family: 'Baloo Thambi 2', cursive;
+  font-size: 19px;
+  text-align: center;
+  /* padding-left: 4rem;
+  padding-right: 4rem; */
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+}
 /* div { outline: 1px dashed blue } span { outline: 1px dashed green }
 
 div {
