@@ -15,7 +15,7 @@
               <div class="col-xxl-4 col-lg-12 pb-5">
                   <div class="box-element-blog">
                       <div class="blogpic-constraint">
-                          <a href="blogpost.html?blogpost_id={{ blogpost.pk }}">
+                          <a href="{% url 'blog_detail' slug=blogpost.slug %}">
                               <div class="blogpic">
                                   <img src={{ blogpost.main_image.url }} class="cover-blog">
                               </div>
@@ -25,7 +25,7 @@
                           <p><h2><center><strong>{{ blogpost.title }}</strong></center></h2></p>
                           <p class="hirtartalom">{{ blogpost.extract|truncatechars:150 }}</p>
                       </div>
-                  <a href="blogpost.html?blogpost_id={{ blogpost.pk }}" class="btn-elolvasom">
+                  <a href="{% url 'blog_detail' slug=blogpost.slug %}" class="btn-elolvasom">
                       Elolvasom
                   </a>    
                   </div>

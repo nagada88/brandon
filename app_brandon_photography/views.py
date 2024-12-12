@@ -65,7 +65,6 @@ def calendar_view(request):
     template = 'admin_calendar.html' if request.user.is_authenticated else 'public_calendar.html'
     return render(request, template, context)
 
-
 @login_required
 def mark_days_unavailable(request):
     if request.method == 'POST':
@@ -85,11 +84,10 @@ def mark_days_unavailable(request):
         return JsonResponse({'status': 'success', 'message': f'{len(selected_dates)} nap foglaltra állítva.'})
     return JsonResponse({'status': 'error', 'message': 'Hibás kérés.'}, status=405)
 
-def kiskedvenc(request):
+def main_site(request):
     pictures = Photos.objects.filter(category__name="kutyafotózás")
     studiopictures = Photos.objects.filter(category__name="studio")
     reviews = load_more_reviews(request)
-
     return render(request, 'kutyafotozas.html',  {'pictures': pictures, 'studiopictures': studiopictures, 'title': 'szabadtéri kutyafotózás Budapesten és környékén', 'reviews': reviews})
 
 
@@ -183,7 +181,6 @@ def kapcsolat(request):
 
     form = ContactForm()
     context.update({'form': form})
-    print(context.keys())
     return render(request, "kapcsolat.html", context)
     
 def blog(request):
@@ -191,11 +188,19 @@ def blog(request):
     
     return render(request, "blog.html", {"bloglist": bloglist, 'title': 'blog, blogposztok, értekezések és elmélkedések fotózásról'})
 
-def blogpost(request):
-    blogpost_id = request.GET.get('blogpost_id')
-    blogpost = BlogPost.objects.get(id=blogpost_id)
-    
-    return render(request, 'blogpost.html',  {'blogpost': blogpost, 'title': blogpost.title})
+class BlogPostDetailView(DetailView):
+    model = BlogPost
+    template_name = 'blogpost.html'
+    context_object_name = 'blogpost'
+
+    def get_queryset(self):
+        return super().get_queryset()
+
+    def get_context_data(self, **kwargs):
+        # Ezzel hozzáadhatod a címadatot a kontextushoz
+        context = super().get_context_data(**kwargs)
+        context['title'] = self.object.title
+        return context
     
 def gallery(request):
     

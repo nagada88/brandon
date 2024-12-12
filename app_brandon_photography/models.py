@@ -11,6 +11,9 @@ from django.conf.urls.static import static
 from django_quill.fields import QuillField
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
+from django.views.generic import DetailView
+from django.utils.text import slugify
 # Create your models here.
 
 
@@ -131,7 +134,6 @@ class Photos(models.Model):
             return format_html('<img src="{}" width="{}" height="{}">'.format(_thumbnail.url, _thumbnail.width, _thumbnail.height))
         return ""
 
-
 class BlogPost(models.Model):
     main_image = models.ImageField(upload_to='app_brandon_photography/img/photos/')
     created_at = models.DateTimeField(auto_now_add=True)
@@ -140,10 +142,18 @@ class BlogPost(models.Model):
     title = models.CharField(max_length=200)
     extract = models.CharField(max_length=200)
     content = QuillField()
+    slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)  # Automatikusan generáljuk a slugot a cím alapján
+        super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return "/blogpost.html?blogpost_id=%i" % self.id
+        return f"/blog/{self.slug}/"
 
+    def __str__(self):
+        return self.title
 
 class Availability(models.Model):
     AVAILABLE = 'green'
@@ -162,46 +172,3 @@ class Availability(models.Model):
 
     def __str__(self):
         return f"{self.date} - {self.get_status_display()}"
-
-
-
-
-
-
-
-
-
-
-
-#
-# class Photos(models.Model):
-#
-#     category = models.ForeignKey(PhotoCategory, on_delete=models.CASCADE)
-#     main_site_visibility = models.BooleanField()
-#     category_cover = models.BooleanField()
-#     priority = models.IntegerField(default=99, validators=[MaxValueValidator(100), MinValueValidator(1)] )
-#     # caption = models.TextField()
-#     photo = models.ImageField(upload_to='app_brandon_photography/img/photos/')
-#     photo_tumb = models.ImageField(upload_to='app_brandon_photography/img/thumbs/', editable=False, default=photo.url)
-#     # photo_tumb = photo
-#
-#     def save(self):
-#         super().save()  # saving image first
-#
-#         img = Image.open(self.photo_tumb.path) # Open image using self
-#
-#         if img.height > 300 or img.width > 300:
-#             new_img = (500, 500)
-#             img.thumbnail(new_img)
-#             img.save(os.path.splitext(self.photo.path))
-#
-#     @property
-#     def thumbnail_preview(self):
-#         if self.photo:
-#             _thumbnail = get_thumbnail(self.photo,
-#                                    '300x300',
-#                                        upscale=False,
-#                                        crop=False,
-#                                        quality=100)
-#             return format_html('<img src="{}" width="{}" height="{}">'.format(_thumbnail.url, _thumbnail.width, _thumbnail.height))
-#         return ""
