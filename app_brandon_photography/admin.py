@@ -9,10 +9,14 @@ class PhotosAdmin(admin.ModelAdmin):
 
     def thumbnail_preview(self, obj):
         return obj.thumbnail_preview
-
+    
+    @admin.display(description="Leírás")
+    def object_display(self, obj):
+        return str(obj)
+    
     thumbnail_preview.short_description = 'Thumbnail Preview'
     thumbnail_preview.allow_tags = True
-    list_display = ('priority', 'thumbnail_preview', 'category', 'main_site_visibility')
+    list_display = ('object_display','thumbnail_preview', 'category')
 
 
 @admin.register(Availability)

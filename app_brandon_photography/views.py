@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import *
 from .forms import ContactForm
-from django.core.mail import send_mail, BadHeaderError
+from django.core.mail import EmailMessage, BadHeaderError
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
@@ -134,26 +134,7 @@ def impresszum(request):
     
 def intro(request):
     categories = PhotoCategory.objects.all().order_by('priority')
-    
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            subject = "Website Inquiry"
-            body = {
-                'name': form.cleaned_data['name'],
-                'email_address': form.cleaned_data['email_address'],
-                'message': form.cleaned_data['message'],
-            }
-            message = "\n".join(body.values())
 
-            try:
-                send_mail(subject, message,  body['email_address'], [body['email_address']])
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
-            return redirect("sikeresmail.html")
-
-    form = ContactForm()
-    
     return render(request, 'intro.html', {'categories': categories, 'form': form, 'title': 'nagipix fotó és video | Budapest | kutyafotózás, esküvő és portré'})
 
 def kapcsolat(request):
@@ -163,24 +144,40 @@ def kapcsolat(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            subject = "Website Inquiry"
+            subject = "nagipix - érdeklődés weboldalon keresztül"
             body = {
-                'name': form.cleaned_data['name'],
+                'name': 'Feladó: ' + form.cleaned_data['name'] + '\n',
                 'email_address': form.cleaned_data['email_address'],
                 'message': form.cleaned_data['message'],
             }
-            message = "\n".join(body.values())
+            
+            message = (
+                f"Üzenet érkezett a nagipix űrlapon keresztül:\n\n"
+                f"{body['name']}"
+                f"Email: {body['email_address']}\n\n"
+                f"Üzenet:\n{body['message']}"
+            )
+
 
             try:
-                send_mail(subject, message,  body['email_address'], ['info@nagipix.hu'])
+                email = EmailMessage(
+                            subject=subject, 
+                            body=message,
+                            from_email='brandbehozunk@gmail.com',
+                            to=['info@nagipix.hu'],
+                            reply_to=[body['email_address']],
+                          )
+                email.send()    
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect("sikeresmail.html")
         
+    else:
+        form = ContactForm()
+        
     context = generate_calendar_context(year, month, is_admin=request.user.is_authenticated)
-
-    form = ContactForm()
     context.update({'form': form})
+
     return render(request, "kapcsolat.html", context)
     
 def blog(request):

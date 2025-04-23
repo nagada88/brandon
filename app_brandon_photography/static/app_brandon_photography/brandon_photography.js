@@ -88,3 +88,19 @@ $cookiesBannerButton.addEventListener("click", () => {
   $cookiesBanner.remove();
 });
 
+document.addEventListener('scroll', function() {
+  document.querySelectorAll('.fade-in').forEach(function(el){
+      const rect = el.getBoundingClientRect();
+      if(rect.top < window.innerHeight - 150) {
+          el.classList.add('visible');
+      }
+  });
+  });
+  document.addEventListener("DOMContentLoaded", function() {
+  setTimeout(function(){
+      document.querySelectorAll('.fade-in-on-load').forEach(function(el){
+          el.classList.add('visible');
+          triggerFadeIn();
+      });
+  }, 500); // <-- 1000 ms = 1 másodperc késleltetés
+  });

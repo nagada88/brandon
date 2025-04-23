@@ -24,7 +24,29 @@
           <div class="col-xl-6 col-12 form-group fg-right"><br><br>
                           <form method="post">
                           {% csrf_token %}
-                              {{form.as_p}}
+                                <div class="form-group">
+                                    {{ form.name.label_tag }}
+                                    {{ form.name }}
+                                    {% for error in form.name.errors %}
+                                    <div class="form-error">{{ error }}</div>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="form-group">
+                                    {{ form.email_address.label_tag }}
+                                    {{ form.email_address }}
+                                    {% for error in form.email_address.errors %}
+                                    <div class="form-error">{{ error }}</div>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="form-group">
+                                    {{ form.message.label_tag }}
+                                    {{ form.message }}
+                                    {% for error in form.message.errors %}
+                                    <div class="form-error">{{ error }}</div>
+                                    {% endfor %}
+                                </div>
 
                               <br><div style="text-align: center;"><button type="submit" class="segitscard-button" style="text-align: center; margin: 0 auto;">elküldöm</button></div>
                           </form><br><br><br><br><br><br><br><br>

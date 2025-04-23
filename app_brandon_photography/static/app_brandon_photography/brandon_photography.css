@@ -868,9 +868,9 @@ h2{
   font-family: 'Baloo Thambi 2', cursive;
   font-size: 19px;
   background-color: #e8e8e8;
-  padding-left: 4rem;
-  padding-right: 4rem;
-  padding-top: 7rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 4rem;
 }
 
 .form-group h1
@@ -879,6 +879,12 @@ h2{
   color: rgb(153,101,21);
   font-size: 50px;
   text-align: center;
+}
+
+.form-error {
+  color: #d9534f; /* Bootstrap vörös */
+  font-size: 0.9em;
+  margin-top: 4px;
 }
 
 .fg-left{
@@ -1839,6 +1845,31 @@ REVIEW **********************************
   padding-top: 2rem;
   padding-bottom: 5rem;
 }
+
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-on-load {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.fade-in-on-load.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 /* div { outline: 1px dashed blue } span { outline: 1px dashed green }
 
 div {

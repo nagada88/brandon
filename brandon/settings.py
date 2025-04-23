@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'sorl.thumbnail',
     'django_quill',
+    'django_cleanup.apps.CleanupConfig', 
 ]
 
 MIDDLEWARE = [

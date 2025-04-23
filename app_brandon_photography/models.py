@@ -80,8 +80,6 @@ class Review(ImageHandlerMixin, models.Model):
     
 class Photos(models.Model):
     category = models.ForeignKey(PhotoCategory, on_delete=models.CASCADE)
-    main_site_visibility = models.BooleanField()
-    priority = models.IntegerField(default=99, validators=[MaxValueValidator(1000), MinValueValidator(1)] )
     photo = models.ImageField(upload_to='app_brandon_photography/img/photos/')
     photo_tumb = models.ImageField(upload_to='app_brandon_photography/img/thumbs/', editable=False)
 
@@ -90,8 +88,19 @@ class Photos(models.Model):
             if not self.make_thumbnail():
                 # set to a default thumbnail
                 raise Exception('Could not create thumbnail - is the file type valid?')
+            
+        self.photo.delete(save=False)
+        self.photo = None
 
         super(Photos, self).save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        if self.photo_tumb:
+            self.photo_tumb.delete(save=False)
+        if self.photo:
+            self.photo.delete(save=False)
+
+        super(Photos, self).delete(*args, **kwargs)
 
     def make_thumbnail(self):
 
@@ -122,17 +131,15 @@ class Photos(models.Model):
         temp_thumb.close()
 
         return True
+    
+    def __str__(self):
+        return f"{self.category.name} – {os.path.basename(self.photo_tumb.name)}"
 
     @property
     def thumbnail_preview(self):
-        if self.photo:
-            _thumbnail = get_thumbnail(self.photo,
-                                       '300x300',
-                                       upscale=False,
-                                       crop=False,
-                                       quality=100)
-            return format_html('<img src="{}" width="{}" height="{}">'.format(_thumbnail.url, _thumbnail.width, _thumbnail.height))
-        return ""
+        if self.photo_tumb and hasattr(self.photo_tumb, 'url'):
+            return format_html('<img src="{}" width="150" height="150" style="object-fit: cover;" />', self.photo_tumb.url)
+        return "-"
 
 class BlogPost(models.Model):
     main_image = models.ImageField(upload_to='app_brandon_photography/img/photos/')
