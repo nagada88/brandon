@@ -1,10 +1,16 @@
+# Általános dolgok
 *.pyc
 *~
-__pycache__
-myvenv
-db.sqlite3
-/static
-/media
+__pycache__/
 .DS_Store
-/migrations
 .env
+db.sqlite3
+myvenv/
+
+# Média és statikus fájlok (amiket nem verziókövetsz)
+media/
+static/
+
+# TÖKÉLETESEN FINE-TUNE-OLT MIGRÁCIÓ IGNORE:
+# Minden migráció marad, kivéve cache
+*/migrations/__pycache__/
