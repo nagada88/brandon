@@ -9,7 +9,7 @@ myvenv/
 
 # Média és statikus fájlok (amiket nem verziókövetsz)
 media/
-static/
+/static
 
 # TÖKÉLETESEN FINE-TUNE-OLT MIGRÁCIÓ IGNORE:
 # Minden migráció marad, kivéve cache
