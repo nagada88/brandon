@@ -96,11 +96,11 @@ document.addEventListener('scroll', function() {
       }
   });
   });
+
   document.addEventListener("DOMContentLoaded", function() {
   setTimeout(function(){
       document.querySelectorAll('.fade-in-on-load').forEach(function(el){
           el.classList.add('visible');
-          triggerFadeIn();
       });
-  }, 500); // <-- 1000 ms = 1 másodperc késleltetés
+  }, 500); 
   });

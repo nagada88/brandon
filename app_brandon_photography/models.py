@@ -66,6 +66,10 @@ class PhotoCategory(models.Model):
 
     def __str__(self):
         return self.name
+    
+    class Meta:
+        verbose_name = 'Fotó Kategória'
+        verbose_name_plural = 'Fotó Kategóriák'
 
 class Review(ImageHandlerMixin, models.Model):
     name = models.CharField(max_length=100)
@@ -161,6 +165,10 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
+    
+    class Meta:
+        verbose_name = 'Blogposzt'
+        verbose_name_plural = 'Blogposztok'
 
 class Availability(models.Model):
     AVAILABLE = 'green'
