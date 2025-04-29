@@ -153,74 +153,41 @@
 <!-- CSOMAGOK -->
 <section>
 	<div class="container-fluid arlista fade-in" id="arhely">
-		<div class="container-fluid" style="height: 3rem"><div class="row"><div class="col"></div></div></div>
-		<div class="row"><div class="col"><h2 style="font-size: 32px; color: rgb(153,101,21);">Csomagjaim</h2></div></div>
-		<div class="row">
-			<div class="carousel-wrap-1">
-				<div class="owl-one owl-carousel owl-theme">    
-					<div  class="owldiv">
-						<div class="box-element">
-							<div class="wrapperconstraint-gallery">
-								<a href="">
-									<div class="newspic">
-										<img src={% static 'app_brandon_photography/images/Carousel/Kisallatfotozas/nagycsomag.jpg' %} alt="nagy csomag fotó, nagytestű szürke kutyát simogat a gazdája">
-									</div>
-								</a>
-							</div>
-							<div class="news">
-								<p><h2><center>Szabadtéri Csomag</center></h2></p><hr>
-								<p class="hirtartalom">~1 óra fotózás</p>
-								<p class="hirtartalom">15 darab retusált kép</p>
-								<p class="hirtartalom">1 héten belül felhőben átadva</p>
-								<p class="hirtartalom"><h3>38.000 Ft</h3></p>
-								<p class="hirtartalom">További képek 1000Ft/db</p>
-								<a href="kapcsolat" target="_blank"><button class="segitscard-button">Érdekel</button></a>
-							</div>
-						</div>
-					</div>
-					<div class="owldiv">
-						<div class="box-element">
-							<div class="wrapperconstraint-gallery">
-								<a href="">
-									<div class="newspic">
-										<img src={% static 'app_brandon_photography/images/Carousel/Kisallatfotozas/belteri.jpg' %} alt="beltéri fotó csomag, 3 tündéri kis cica">
-									</div>
-								</a>
-							</div>
-							<div class="news">
-								<p><h2><center>Műtermi Csomag</center></h2></p><hr>
-								<p class="hirtartalom">1 óra fotózás stúdióban </p>
-								<p class="hirtartalom">12 darab retusált kép</p>
-								<p class="hirtartalom">Tartalmazza a stúdió bérlés árát is</p>
-								<p class="hirtartalom"><h3>50.000 Ft</h3></p>
-								<p class="hirtartalom">További képek 1000Ft/db</p>
-								<a href="kapcsolat" target="_blank"><button class="segitscard-button">Érdekel</button></a>
-							</div>
-						</div>
-					</div>
-					<div class="owldiv">
-						<div class="box-element">
-							<div class="wrapperconstraint-gallery">
-								<a href="">
-									<div class="newspic">
-										<img src={% static 'app_brandon_photography/images/Ajandekkartya.jpg' %} alt="kutyafotózás ajándékutalvány">
-									</div>
-								</a>
-							</div>
-							<div class="news">
-								<p><h2><center>Ajándékutalvány</center></h2></p><hr>
-								<p class="hirtartalom">Ajándékozz fotózást szeretteidnek!</p>
-								<p class="hirtartalom">Bármelyik csomagom kérhető ajándékutalvány formájában</p>
-								<p class="hirtartalom">1 évig érvényes</p><br><br><br><br><br>
-								<p></p>
-								<a href="kapcsolat" target="_blank"><button class="segitscard-button">Érdekel</button></a>
-							</div>
-						</div>
-					</div>
+	  <div class="row">
+		<div class="col">
+		  <h2 style="font-size: 32px; color: rgb(153,101,21);">Csomagjaim</h2>
+		</div>
+	  </div>
+	  <div class="row">
+		<div class="carousel-wrap-1">
+		  <div class="owl-one owl-carousel owl-theme">
+			{% for package in packages %}
+			<div class="owldiv">
+			  <div class="box-element">
+				<div class="wrapperconstraint-gallery">
+				  <div class="newspic">
+					<img src={{ package.photo_tumb.url }} alt="{{ package.name }}">
+				  </div>
+				</div>
+				<div class="news">
+				  <h2><center>{{ package.name }}</center></h2><hr>
+				  <p class="hirtartalom">{{ package.duration }}</p>
+				  <p class="hirtartalom">{{ package.edited_photos }} darab retusált kép</p>
+				  <p class="hirtartalom"><h3>{{ package.price }} Ft</h3></p>
+				  <p class="hirtartalom">Extra kép: {{ package.extra_photo_price }}</p>
+				  <p class="hirtartalom">{{ package.extra_info }}</p>
+				  <a href="kapcsolat" target="_blank">
+					<button class="segitscard-button">Érdekel</button>
+				  </a>
+				</div>
+			  </div>
 			</div>
-		</div>            
+			{% endfor %}
+		  </div>
+		</div>
+	  </div>
 	</div>
-</section>
+  </section>
 
 <!-- BIO -->
  <section class="bio fade-in">

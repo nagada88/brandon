@@ -3,17 +3,13 @@ from .models import *
 from .forms import ContactForm
 from django.core.mail import EmailMessage, BadHeaderError
 from django.http import HttpResponse
-from django.template.loader import render_to_string
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.contrib.auth.decorators import login_required
-from django.utils.timezone import now
-from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from calendar import Calendar
 from datetime import date
-# Create your views here.
+from django.views.generic.detail import DetailView
 
-# Magyar hónapnevek
 HUNGARIAN_MONTH_NAMES = [
     "", "Január", "Február", "Március", "Április", "Május", "Június",
     "Július", "Augusztus", "Szeptember", "Október", "November", "December"
@@ -27,12 +23,10 @@ def generate_calendar_context(year, month, is_admin=False):
     cal = Calendar(firstweekday=0)
     month_days = list(cal.itermonthdates(year, month))
 
-    # Napok lekérése az adatbázisból
     availability_map = {
         a.date: a.status for a in Availability.objects.filter(date__year=year, date__month=month)
     }
 
-    # Naptár adatok státuszokkal
     calendar_data = []
     for day in month_days:
         status = 'green' if day.month == month else 'empty'
@@ -40,7 +34,6 @@ def generate_calendar_context(year, month, is_admin=False):
             status = availability_map.get(day, 'green')
         calendar_data.append({'date': day, 'status': status})
 
-    # Hetekre bontás
     calendar_data = [calendar_data[i:i + 7] for i in range(0, len(calendar_data), 7)]
 
     return {
@@ -63,6 +56,8 @@ def calendar_view(request):
     year = int(request.GET.get('year', today.year))
     context = generate_calendar_context(year, month, is_admin=request.user.is_authenticated)
     template = 'admin_calendar.html' if request.user.is_authenticated else 'public_calendar.html'
+    
+
     return render(request, template, context)
 
 @login_required
@@ -76,7 +71,7 @@ def mark_days_unavailable(request):
             try:
                 date_obj = date.fromisoformat(date_str)
                 availability, created = Availability.objects.get_or_create(date=date_obj)
-                availability.status = 'red'  # Foglaltra állítjuk
+                availability.status = 'red' 
                 availability.save()
             except ValueError:
                 return JsonResponse({'status': 'error', 'message': f'Érvénytelen dátum: {date_str}'}, status=400)
@@ -84,11 +79,33 @@ def mark_days_unavailable(request):
         return JsonResponse({'status': 'success', 'message': f'{len(selected_dates)} nap foglaltra állítva.'})
     return JsonResponse({'status': 'error', 'message': 'Hibás kérés.'}, status=405)
 
+@login_required
+def mark_days_available(request):
+    if request.method == 'POST':
+        selected_dates = request.POST.getlist('selected_dates[]', [])
+        if not selected_dates:
+            return JsonResponse({'status': 'error', 'message': 'Nincsenek kijelölt dátumok.'}, status=400)
+
+        for date_str in selected_dates:
+            try:
+                date_obj = date.fromisoformat(date_str)
+                availability = Availability.objects.get(date=date_obj)
+                availability.status = 'green'
+                availability.delete()
+
+            except ValueError:
+                return JsonResponse({'status': 'error', 'message': f'Érvénytelen dátum: {date_str}'}, status=400)
+
+        return JsonResponse({'status': 'success', 'message': f'{len(selected_dates)} nap szabadra állítva.'})
+    return JsonResponse({'status': 'error', 'message': 'Hibás kérés.'}, status=405)
+
+
 def main_site(request):
+    packages = Package.objects.all()
     pictures = Photos.objects.filter(category__name="kutyafotózás")
     studiopictures = Photos.objects.filter(category__name="studio")
     reviews = load_more_reviews(request)
-    return render(request, 'kutyafotozas.html',  {'pictures': pictures, 'studiopictures': studiopictures, 'title': 'szabadtéri kutyafotózás Budapesten és környékén', 'reviews': reviews})
+    return render(request, 'kutyafotozas.html',  {'pictures': pictures, 'studiopictures': studiopictures, 'title': 'szabadtéri kutyafotózás Budapesten és környékén', 'reviews': reviews, 'packages': packages})
 
 
 def review_upload(request):
@@ -150,7 +167,7 @@ def kapcsolat(request):
                 'email_address': form.cleaned_data['email_address'],
                 'message': form.cleaned_data['message'],
             }
-            
+
             message = (
                 f"Üzenet érkezett a nagipix űrlapon keresztül:\n\n"
                 f"{body['name']}"

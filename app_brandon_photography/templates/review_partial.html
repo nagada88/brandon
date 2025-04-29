@@ -1,23 +1,4 @@
 {% load custom_filters %}
-
-<!-- <div class="container-fluid reviews-container" data-more-reviews={{ more_reviews_exist }}>
-    <div class="row">
-{% for review in reviews %}
-        <div class=" col-xs-12 col-sm-12 col-lg-4">
-            <div class="review-card">
-                <h3>{{ review.name }}</h3>
-                <div class="stars">
-                    {{ '★'|repeat:review.stars }}
-                    {{ '☆'|repeat:review.remaining_stars }}
-                </div>
-                <p>{{ review.description }}</p>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-</div> -->
-
-
 {% if reviews %}
     {% for review in reviews %} 
             <div class=" col-xs-12 col-sm-12 col-lg-4 d-flex justify-content-center align-items-center">

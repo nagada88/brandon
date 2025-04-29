@@ -38,7 +38,8 @@
 
 <br><br>
 <div class="mt-3">
-    <center><button id="mark-unavailable" class="btn btn-danger">Foglaltra állítás</button></center>
+    <center><button id="mark-unavailable" class="btn btn-danger">Foglaltra állítás</button>
+    <button id="mark-available" class="btn btn-success">Szabadra állítás</button></center>
 </div>
 <br><br>
 
@@ -58,11 +59,11 @@
         if (selectedDates.includes(date)) {
             // Dátum eltávolítása, ha már ki van jelölve
             selectedDates = selectedDates.filter(d => d !== date);
-            cell.classList.remove('border-primary');  // Kijelölés eltávolítása
+            cell.classList.remove("selected-date");
         } else {
             // Dátum hozzáadása, ha még nincs kijelölve
             selectedDates.push(date);
-            cell.classList.add('border-primary');  // Kék szegély hozzáadása
+            cell.classList.add("selected-date");
         }
     }
 
@@ -101,6 +102,45 @@
         })
         .catch(error => console.error('Hiba:', error)); // Hibakezelés
     });
+
+    // Foglaltra állítás gomb eseménykezelője
+    document.getElementById('mark-available').addEventListener('click', () => {
+        if (selectedDates.length === 0) {
+            alert('Nincs kijelölt nap!');
+            return;
+        }
+        console.log('itt még járunk?')
+        // Formázott adatok küldése a szerver felé
+        const formData = new URLSearchParams();
+        selectedDates.forEach(date => formData.append('selected_dates[]', date)); 
+
+        fetch("{% url 'mark_days_available' %}", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'X-CSRFToken': '{{ csrf_token }}' 
+            },
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                console.log('itt még járun1111k?')
+                throw new Error(`Hálózati hiba: ${response.status}`);
+            }
+            return response.json(); 
+        })
+        .then(data => {
+            if (data.status === 'success') {
+                alert(data.message);
+                location.reload();  
+            } else {
+                alert(data.message);
+            }
+            console.log('itt még sssjárunk?')
+        })
+        .catch(error => console.error('Hiba:', error)); 
+    });
+
 </script>
 
 {% endblock content %}

@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://fonts.googleapis.com/css?family='Roboto', sans-serif');
 @import url('https://fonts.googleapis.com/css?family=Vollkorn');
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Oswald&display=swap');
@@ -1867,6 +1865,16 @@ REVIEW **********************************
 .fade-in-on-load.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.selected-date{
+  background-color: orange !important;
+  color: gray !important;
+}
+
+.calendar-cell:hover {
+  cursor: pointer;
+  background-color: gray !important; /* Egy kicsit sötétebb zöld, ha akarod */
 }
 
 

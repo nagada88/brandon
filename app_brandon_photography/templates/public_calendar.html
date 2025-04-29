@@ -1,37 +1,35 @@
 {% load static %}    
 
-<h2><center>{{ year }}. {{ month_name }}</center></h2>
-<div class="d-flex justify-content-between mb-3">
-    <a href="?month={{ prev_month }}&year={{ prev_year }}" class="btn btn-outline-primary" 
-       hx-get="?month={{ prev_month }}&year={{ prev_year }}" 
-       hx-target="#calendar-container" 
-       hx-swap="innerHTML">&larr; Előző hónap</a>
-    <a href="?month={{ next_month }}&year={{ next_year }}" class="btn btn-outline-primary" 
-       hx-get="?month={{ next_month }}&year={{ next_year }}" 
-       hx-target="#calendar-container" 
-       hx-swap="innerHTML">Következő hónap &rarr;</a>
+<div class="container mt-4">
+    <h1><center>Elérhetőség - {{ year }}. {{ month_name }}</center></h1>
+    <div class="d-flex justify-content-between mb-3">
+        <a href="?month={{ prev_month }}&year={{ prev_year }}" class="btn btn-outline-primary">&larr; Előző hónap</a>
+        <a href="?month={{ next_month }}&year={{ next_year }}" class="btn btn-outline-primary">Következő hónap &rarr;</a>
+    </div>
+    <table class="table table-bordered text-center">
+        <thead>
+            <tr>
+                {% for day in days_of_week %}
+                    <th>{{ day }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for week in calendar_data %}
+            <tr>
+                {% for day in week %}
+                <td class="calendar-cell {% if day.status == 'green' %}bg-success text-white{% elif day.status == 'red' %}bg-danger text-white{% elif day.status == 'yellow' %}bg-warning{% else %}bg-light{% endif %}"
+                    data-date="{{ day.date|date:'Y-m-d' }}"
+                    onclick="toggleSelection(this)">
+                    {% if day.status != 'empty' %}
+                        <div>
+                            {{ day.date.day }}
+                        </div>
+                    {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
-<table class="table table-bordered text-center">
-    <thead>
-        <tr>
-            {% for day in days_of_week %}
-                <th>{{ day }}</th>
-            {% endfor %}
-        </tr>
-    </thead>
-    <tbody>
-        {% for week in calendar_data %}
-        <tr>
-            {% for day in week %}
-            <td class="calendar-cell {% if day.status == 'green' %}bg-success text-white{% elif day.status == 'red' %}bg-danger text-white{% elif day.status == 'yellow' %}bg-warning{% else %}bg-light{% endif %}">
-                {% if day.status != 'empty' %}
-                    <div>
-                        {{ day.date.day }}
-                    </div>
-                {% endif %}
-            </td>
-            {% endfor %}
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>

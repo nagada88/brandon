@@ -2,20 +2,9 @@ from django.db import models
 from PIL import Image
 from io import BytesIO
 import os
-from django.core.validators import MaxValueValidator, MinValueValidator
 from django.core.files.base import ContentFile
-from sorl.thumbnail import get_thumbnail
-from django.utils.html import format_html
-from django.conf import settings
-from django.conf.urls.static import static
 from django_quill.fields import QuillField
-from django.urls import reverse
-from django.contrib.auth.models import User
-from django.shortcuts import get_object_or_404
-from django.views.generic import DetailView
 from django.utils.text import slugify
-# Create your models here.
-
 
 class ImageHandlerMixin():
     def save(self, *args, **kwargs):
@@ -24,7 +13,19 @@ class ImageHandlerMixin():
                 # set to a default thumbnail
                 raise Exception('Could not create thumbnail - is the file type valid?')
 
-        super(ImageHandlerMixin, self).save(*args, **kwargs)
+        self.photo.delete(save=False)
+        self.photo = None
+
+        super(Photos, self).save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        if self.photo_tumb:
+            self.photo_tumb.delete(save=False)
+        if self.photo:
+            self.photo.delete(save=False)
+
+        super(Photos, self).delete(*args, **kwargs)
+
 
 
     def make_thumbnail(self):
@@ -59,10 +60,7 @@ class ImageHandlerMixin():
 
 
 class PhotoCategory(models.Model):
-
     name = models.CharField(max_length=200)
-    priority = models.IntegerField(default=10, validators=[MaxValueValidator(10), MinValueValidator(1)])
-    category_cover = models.ImageField(default = 'app_brandon_photography/img/photos/IMG_3266.JPG/', upload_to='app_brandon_photography/img/photos/')
 
     def __str__(self):
         return self.name
@@ -82,7 +80,11 @@ class Review(ImageHandlerMixin, models.Model):
     def __str__(self):
         return f"{self.name} ({self.stars} stars)"
     
-class Photos(models.Model):
+    class Meta:
+        verbose_name = "Vélemény"
+        verbose_name_plural = "Vélemények"
+    
+class Photos(ImageHandlerMixin, models.Model):
     category = models.ForeignKey(PhotoCategory, on_delete=models.CASCADE)
     photo = models.ImageField(upload_to='app_brandon_photography/img/photos/')
     photo_tumb = models.ImageField(upload_to='app_brandon_photography/img/thumbs/', editable=False)
@@ -97,53 +99,13 @@ class Photos(models.Model):
         self.photo = None
 
         super(Photos, self).save(*args, **kwargs)
-
-    def delete(self, *args, **kwargs):
-        if self.photo_tumb:
-            self.photo_tumb.delete(save=False)
-        if self.photo:
-            self.photo.delete(save=False)
-
-        super(Photos, self).delete(*args, **kwargs)
-
-    def make_thumbnail(self):
-
-        image = Image.open(self.photo)
-        image.thumbnail((1000,1000), Image.ANTIALIAS)
-
-        thumb_name, thumb_extension = os.path.splitext(self.photo.name)
-        thumb_extension = thumb_extension.lower()
-
-        thumb_filename = thumb_name + '_thumb' + thumb_extension
-
-        if thumb_extension in ['.jpg', '.jpeg']:
-            FTYPE = 'JPEG'
-        elif thumb_extension == '.gif':
-            FTYPE = 'GIF'
-        elif thumb_extension == '.png':
-            FTYPE = 'PNG'
-        else:
-            return False  # Unrecognized file type
-
-        # Save thumbnail to in-memory file as StringIO
-        temp_thumb = BytesIO()
-        image.save(temp_thumb, FTYPE)
-        temp_thumb.seek(0)
-
-        # set save=False, otherwise it will run in an infinite loop
-        self.photo_tumb.save(thumb_filename, ContentFile(temp_thumb.read()), save=False)
-        temp_thumb.close()
-
-        return True
-    
+   
     def __str__(self):
         return f"{self.category.name} – {os.path.basename(self.photo_tumb.name)}"
-
-    @property
-    def thumbnail_preview(self):
-        if self.photo_tumb and hasattr(self.photo_tumb, 'url'):
-            return format_html('<img src="{}" width="150" height="150" style="object-fit: cover;" />', self.photo_tumb.url)
-        return "-"
+    
+    class Meta:
+        verbose_name = "Fotó"
+        verbose_name_plural = "Fotók"
 
 class BlogPost(models.Model):
     main_image = models.ImageField(upload_to='app_brandon_photography/img/photos/')
@@ -187,3 +149,25 @@ class Availability(models.Model):
 
     def __str__(self):
         return f"{self.date} - {self.get_status_display()}"
+    
+    class Meta:
+        verbose_name = "Elérhetőség"
+        verbose_name_plural = "Elérhetőségek"
+
+class Package(ImageHandlerMixin, models.Model):
+    photo = models.ImageField(upload_to='app_brandon_photography/img/photos/')
+    photo_tumb = models.ImageField(upload_to='app_brandon_photography/img/thumbs/', editable=False)
+    name = models.CharField(max_length=100)
+    price = models.IntegerField()
+    duration = models.CharField(max_length=100)
+    edited_photos = models.IntegerField()
+    extra_photo_price = models.TextField()
+    extra_info = models.TextField()
+    terms_pdf = models.FileField(upload_to='terms_pdfs/', null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Csomag"
+        verbose_name_plural = "Csomagok"
